@@ -30,6 +30,7 @@ class CreatePoliticiansTable extends Migration
             $table->string('file');
             $table->timestamps();
         });
+         DB::statement('ALTER TABLE politicians ADD FULLTEXT search(first_name, last_name)');
     }
 
     /**
@@ -39,6 +40,9 @@ class CreatePoliticiansTable extends Migration
      */
     public function down()
     {
+         Schema::table('politicians', function($table) {
+            $table->dropIndex('search');
+        });
         Schema::dropIfExists('politicians');
     }
 }

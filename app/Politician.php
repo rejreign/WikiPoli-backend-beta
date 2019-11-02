@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Searchable\Searchable;
 use Spatie\Searchable\SearchResult;
-
+use App\PoliticianPost;
 class Politician extends Model implements Searchable {
 
     protected $fillable = [
@@ -15,8 +15,11 @@ class Politician extends Model implements Searchable {
     public function getSearchResult(): SearchResult {
       
         return new \Spatie\Searchable\SearchResult(
-                $this, $this->id
+                $this, $this->id,$this->first_name,$this->last_name
         );
     }
-
+    public function politicianpost() {
+        return $this->hasMany(PoliticianPost::class, 'politician_id')->with('post');
+        
+    }
 }

@@ -34,9 +34,9 @@ Route::get('/Donation', function () {
     return view('donate_and_support_page');
 });
 
-//Route::get('/posts', 'Web\WebController@index');
 Route::get('/posts', 'PostsController@index');
-
+//search
+Route::get('/search', 'PostsController@search')->name('search');
 
 Route::get('/post/{id}', 'PostsController@show')->name('post.show');
 Route::post('/comments/{id}', 'CommentsController@store');
