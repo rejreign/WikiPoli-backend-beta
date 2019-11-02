@@ -41,8 +41,8 @@
    <a href="{{url('create-post')}}"> <button  id="create-post">New Post</button></a>
     @endauth
     @endif
-    <form action="action_page.php">
-        <input type="text" name="search" placeholder="Search Politician's name" class="justify-content-right">
+    <form action="{{url('search')}}" method="get">
+        <input type="text" name="q" value=" " placeholder="Search Politician's name" class="justify-content-right">
         <input type="submit" name="Submit" value="Search">
     </form>
 </div>
