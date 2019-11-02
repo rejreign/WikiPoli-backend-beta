@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUserPriviledgesTable extends Migration
+class CreateCommentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,14 @@ class CreateUserPriviledgesTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_priviledges', function (Blueprint $table) {
+        Schema::create('comments', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('priviledge_name', 45);
+            $table->string('user');
+            $table->text('comment');
+            $table->unsignedBigInteger('posts_id');
             $table->timestamps();
+
+            $table->foreign('posts_id')->references('id')->on('posts')->onDelete('cascade');
         });
     }
 
@@ -27,6 +31,6 @@ class CreateUserPriviledgesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_priviledges');
+        Schema::dropIfExists('comments');
     }
 }
