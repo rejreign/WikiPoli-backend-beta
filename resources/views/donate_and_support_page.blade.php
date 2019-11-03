@@ -301,9 +301,10 @@ h1 {
             </div>
 			
         </div>
-		@include('layouts.footer')
+		
         
     </div>
+	@include('layouts.footer')
 
 
   <!-- the flutterwave api integration -->
