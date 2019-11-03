@@ -22,7 +22,7 @@
                .toast {
                 opacity: 0.9!important;
             }
-        .modal
+        .modalsnow
     {
         position: fixed;
         z-index: 999;
@@ -123,7 +123,7 @@ $(".deleted").on("submit", function () {
 
         </script>
           @yield('script')
-            <div class="modal" style="display: none">
+            <div class="modalsnow modal" style="display: none">
             <div class="center">
                 <img src="{{asset('images/reload.gif')}}"  >
             </div>
