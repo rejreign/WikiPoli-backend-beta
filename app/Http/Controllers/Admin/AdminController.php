@@ -9,6 +9,8 @@ use App\Models\Post;
 use Spatie\Permission\Models\Role;
 use App\Politician;
 use App\Http\Controllers\Traits\HasError;
+use App\PoliticianPost;
+use Spatie\Searchable\Search;
 
 class AdminController extends Controller {
 
@@ -18,6 +20,7 @@ class AdminController extends Controller {
         $data['recents'] = Post::where('created_at', '>=', \Carbon\Carbon::now()->subDay())->count();
         $data['posts'] = Post::count();
         $data['users'] = User::count();
+        $data['politicians'] = Politician::count();
         return view('admin.home', $data);
     }
 
@@ -87,6 +90,73 @@ class AdminController extends Controller {
         session()->flash('message.alert', 'success');
         session()->flash('message.content', "Post Restore");
         return back();
+    }
+
+    public function showEdit($id) {
+        $data['post'] = Post::find($id);
+        return view('admin.post.edit', $data);
+    }
+
+    public function viewEdit($id) {
+        $data['post'] = Post::find($id);
+        return view('admin.post.view', $data);
+    }
+
+    public function edit(Request $request) {
+        $input = $request->all();
+        $rules = [
+            'title' => ['required', 'string'],
+            'body' => 'required'
+        ];
+
+
+        $error = static::getErrorMessageAjax($input, $rules);
+        if ($error) {
+            return $error;
+        }
+        //check mention
+        $body = strip_tags($request->body);
+
+        $query = "MATCH (first_name,last_name) AGAINST ('$body' IN BOOLEAN MODE)";
+
+        $check = Politician::whereRaw($query)->with('politicianpost')->get();
+        if (is_object($check)) {
+            foreach ($check as $value) {
+                $delete = PoliticianPost::wherePost_id($request->id)->wherePolitician_id($value->id)->delete();
+            }
+        }
+        $mentions = (new Search())
+                ->registerModel(Politician::class, 'first_name', 'last_name')
+                ->search($body);
+        if (is_object($mentions)) {
+            foreach ($mentions as $mention) {
+                PoliticianPost::create([
+                    'post_id' => $request->id,
+                    'politician_id' => $mention->title
+                ]);
+            }
+            $checking = Post::whereTitle($request->title)->first();
+            if (is_object($checking)) {
+                $checking->update([
+                    'body' => $request->body
+                ]);
+                return ([
+                    'status' => 200,
+                    'message' => 'Post Body Successfully Updated'
+                ]);
+            }
+        }
+        $title = $request->title;
+        $input['slug'] = $this->makeSlug($title);
+
+        $post = Post::whereId($request->id)->first();
+        $post->update($input);
+
+
+        return ([
+            'status' => 200,
+            'message' => 'Post  Successfully Updated'
+        ]);
     }
 
     //users

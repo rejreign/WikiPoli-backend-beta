@@ -34,7 +34,7 @@
         </a>
         @hasanyrole('SuperAdmin')
         <a href="{{url('admin/politicians')}}">Politicians
-              <span style="color: red!important">(coming soon)</span>
+              <span style="color: red!important">({{number_format($politicians)}})</span>
         </a>
         @endhasanyrole
     </section>

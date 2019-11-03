@@ -51,9 +51,10 @@ class PostsController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function show($id) {
-        $data['post'] = Post::whereSlug($id)->with('comments')->firstOrFail();
-       
-        return view('readmore', $data);
+
+        $post = Post::find($id);
+        return view('readmore')->with('post', $post);
+
     }
 
     /**

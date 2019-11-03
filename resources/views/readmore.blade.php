@@ -6,6 +6,11 @@
     $text = $text."...";
     return $text;
   }
+  // function to rewrite the title for valid SEO
+  function rewriteText($string) {
+    $text = preg_replace('/[^-a-z0-9-]+/', '-', strtolower($string));
+    return $text;
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,7 +22,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>WIKIPOLI - {{ $post->title }}</title>
+    <title>WIKIPOLI - {{ rewriteText($post->title) }}</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     
@@ -29,7 +34,7 @@
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="{{ URL::current() }}">
     <meta name="twitter:creator" content="">
-    <meta name="twitter:title" content="{{ $post->title }}">
+    <meta name="twitter:title" content="{{ rewriteText($post->title) }}">
     <meta name="twitter:description" content="{{ textShorten($post->body) }}">
     <meta name="twitter:image" content="https://res.cloudinary.com/fabianuzukwu/image/upload/v1571749198/c09e9odiqy2cvkosfubl.png">
 
@@ -113,7 +118,7 @@
               {!! $post->body !!}
               <div class="icon mt-4">
                 <!-- twitter -->
-                <a href="http://www.twitter.com/intent/tweet?url={{ URL::current() }}&text={{ $post->title }}" target="_blank"><img src="https://res.cloudinary.com/siyfa/image/upload/v1571761066/a4zha34vheoeyzypvpqu.png" style="width: 25px;"></a>
+                <a href="http://www.twitter.com/intent/tweet?url={{ URL::current() }}&text={{ rewriteText($post->title) }}" target="_blank"><img src="https://res.cloudinary.com/siyfa/image/upload/v1571761066/a4zha34vheoeyzypvpqu.png" style="width: 25px;"></a>
                 <!-- facebook -->
                 <a href="https://www.facebook.com/sharer/sharer.php?u={{ URL::current() }}" target="_blank"><img src="https://res.cloudinary.com/siyfa/image/upload/v1571761008/bzosk4pcqvpldu59bo0w.png" style="width: 25px;"></i></a>
                 <a href="" aria-hideen="true"><img src="https://res.cloudinary.com/siyfa/image/upload/v1571760662/hq5ctfvhjv3r05bqdski.png" style="width: 25px;"></a>
