@@ -13,7 +13,7 @@
  */
 
 Route::get('/', function () {
-    return view('web.index');
+    return view('indexnew');
 });
 Route::get('/Terms', function () {
     return view('Terms-of-use');
