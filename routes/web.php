@@ -40,6 +40,7 @@ Route::get('/search', 'PostsController@search')->name('search');
 
 Route::get('/posts/{id}/{post_title}', 'PostsController@show')->name('post.show');
 Route::post('/comments/{id}', 'CommentsController@store');
+Route::get('/user_profile', 'Post\PostController@userprofile');
 
 
 // Auth::routes();
@@ -56,6 +57,7 @@ Route::get('/home', 'PostsController@index')->name('home');
 Route::get('/create-post', 'Post\PostController@index');
 Route::post('/create-post', 'Post\PostController@create');
 Route::post('/draf-post', 'Post\PostController@draft');
+
 
 
 

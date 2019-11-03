@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Redirect;
 use App\Http\Controllers\Traits\HasError;
 use App\Models\Post;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use App\Politician;
 use Spatie\Searchable\Search;
 use App\PoliticianPost;
@@ -68,5 +69,17 @@ class PostController extends Controller {
             'message' => 'Todo'
         ]);
     }
+
+    public function userprofile(){
+
+        if(Auth::check()){
+            
+            $user=Auth::user();
+            $posts=DB::table('posts')->where('author_id', $user->id)->get();
+            return(view('web.post.user_profile',['user'=>$user,'posts'=>$posts]));
+            //echo $posts;
+        }
+    }
+
    
 }
