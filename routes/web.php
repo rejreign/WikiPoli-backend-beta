@@ -41,7 +41,7 @@ Route::get('/search', 'PostsController@search')->name('search');
 Route::get('/post/{id}', 'PostsController@show')->name('post.show');
 Route::post('/comments/{id}', 'CommentsController@store');
 
- 
+
 // Auth::routes();
 // Route::get('/home', 'HomeController@index')->name('home');
 // Route::group(['middleware' => ['auth']], function () {
@@ -70,7 +70,9 @@ Route::group(['middleware' => ['role:SuperAdmin|Admin']], function () {
     Route::post('delete-temporary-post/{id}', 'Admin\AdminController@deleteTemporary');
     Route::post('delete-permanently-post/{id}', 'Admin\AdminController@deletePermanently');
     Route::post('delete-restore-post/{id}', 'Admin\AdminController@restore');
-
+    Route::get('/admin/edit-post/{id}', 'Admin\AdminController@showEdit')->name('admin.edit-post');
+     Route::get('/admin/view-post/{id}', 'Admin\AdminController@viewEdit')->name('admin.view-post');
+    Route::post('edit-post', 'Admin\AdminController@edit');
     //users
     Route::get('/admin/users', 'Admin\AdminController@userGet')->name('admin.users');
     Route::post('block-user/{id}', 'Admin\AdminController@block');
@@ -87,9 +89,8 @@ Route::group(['middleware' => ['role:SuperAdmin|Admin']], function () {
     Route::get('/admin/all-admins', 'Admin\AdminController@adminGet')->name('admin.all-admins');
     //recent Activities
     Route::get('/admin/activities', 'Admin\AdminController@activity')->name('admin.activities');
-    
+
     //politicians
     Route::get('/admin/politicians', 'Admin\AdminController@politicianGet')->name('admin.politicians');
-     Route::post('add-politician', 'Admin\AdminController@addPolitician');
-    
+    Route::post('add-politician', 'Admin\AdminController@addPolitician');
 });
