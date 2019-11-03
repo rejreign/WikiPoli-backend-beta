@@ -38,7 +38,7 @@ Route::get('/posts', 'PostsController@index');
 //search
 Route::get('/search', 'PostsController@search')->name('search');
 
-Route::get('/post/{id}', 'PostsController@show')->name('post.show');
+Route::get('/posts/{id}/{post_title}', 'PostsController@show')->name('post.show');
 Route::post('/comments/{id}', 'CommentsController@store');
 
  
