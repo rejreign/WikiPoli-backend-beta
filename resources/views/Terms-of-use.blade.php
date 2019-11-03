@@ -246,31 +246,7 @@ width: 100%;
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-custom bg-custom">
-        <div class="container">
-            <a href="index.html" class="navbar-brand"><img
-                    src="https://res.cloudinary.com/partypack/image/upload/v1571741441/wikiPoli5_8_p1rvip.jpg"
-                    class="img-fluid" alt="logo" width="150px"></a>
-            <button class="navbar-toggler float-right custom-toggler" type="button" data-toggle="collapse"
-                data-target="#navbar9" style="color: #000;">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="navbar-collapse collapse" id="navbar9">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item mr-5">
-                        <a class="nav-link" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item mr-5">
-                        <a class="nav-link" href="about.html">about us</a>
-                    </li>
-                    <li class="nav-item mr-5">
-                        <a class="nav-link" href="postpage1.html">Post</a>
-                    </li>
-                    <li class="nav-item mr-5">
-                        <a class="nav-link" href="signin.html">sign in</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
+    @include('layouts.header')
     </nav>
     <div class="jumbotron jumbotron-fluid first">
             <div class="container">

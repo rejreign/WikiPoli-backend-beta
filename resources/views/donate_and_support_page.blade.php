@@ -54,32 +54,217 @@
         list-style-type: none;
     }
 
-	
+	.logo img {
+    width: 120px;
+}
+
+.navbar p {
+    font-size: 2rem;
+    color:  #6D9BF1;
+}
+
+.menu a {
+    font-size: 1.5rem;
+    color:  #6D9BF1;
+}
+
+.menu li {
+    padding-left: 2.5rem;
+}
+
+.fa-bars {
+    color: #000000;
+}
+
+.button-signup {
+    background-color:  #6D9BF1;
+    border: none;
+    box-shadow: none;
+    color: #ffffff;
+    padding: 6px;
+    font-size: 1.5rem;
+    text-align: center;
+    width: 150px;
+    margin-left: 2.5rem;
+}
+
+.button-signup:hover {
+    color: white;
+    text-decoration: none;
+    background: rgb(24, 24, 133);
+}
+
+.button-search {
+    background-color:  #6D9BF1;
+    border: none;
+    box-shadow: none;
+    color: #ffffff;
+    font-size: 2rem;
+    padding: 1px;
+    width: 150px;
+}
+
+.button-search:hover {
+    background: rgb(24, 24, 133);
+}
+
+.form-content {
+    width: 80%;
+    margin-top: 15%;
+}
+
+.input-group {
+    width: 80%;
+    margin-left: 23%;
+}
+
+.form-control {
+    height: 50px;
+    padding: 15px;
+    border-radius: 0;
+    border: 1px solid  #6D9BF1;
+}
+
+h1 {
+    margin-left: 23%;
+    color:  #6D9BF1;
+    margin-bottom: 50px;
+}
+
+.search-content {
+    font-size: 1.2rem;
+    margin-left: 23%;
+    color: #676871;
+    padding-top: 20px;
+    font-weight: bold;
+}
+
+.search-content a {
+    font-weight: bold;
+    color:  #6D9BF1;
+}
+
+
+#footer {
+    background-color:  #6D9BF1;
+    margin-top: 32%;  /* YOU CAN PULL THIS OUT WHEN YOU IMPLEMENT YOUR PAGE.*/
+    padding-top: 10px;
+    /* height: 300px; */
+    width: 100%;
+}
+
+.links {
+    padding-top: 5px;
+}
+
+.social-links h3,
+.quick-links li {
+    list-style-type: none;
+    padding-top: 5px;
+}
+
+.social-links h3,
+.quick-links li:first-child {
+    color: #ffffff;
+    padding-bottom: 10px;
+    font-weight: bold;
+}
+
+.quick-links li a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.social-links a span {
+    color: #ffffff;
+    letter-spacing: 20px;
+}
+
+.social-links p,
+.copyright p {
+    padding-top: 10px;
+    color: #ffffff;
+    font-size: 12px;
+}
+
+.line{
+    display: none;
+}
+
+/* Responsive styling */
+@media screen and (max-width: 768px) {
+    h1 {
+        font-size: 30px;
+    }
+    #footer {
+        padding-top: 10px;
+        height: 450px;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .input-group {
+        width: 100%;
+        margin-left: 12%;
+    }
+    .form-control {
+        height: 50px;
+        padding: 20px;
+        border-radius: 0;
+        border: 1px solid  #6D9BF1;
+    }
+    .button-search {
+        background-color:  #6D9BF1;
+        border: none;
+        box-shadow: none;
+        color: #ffffff;
+        font-size: 1.2rem;
+        padding: 1px;
+        width: 80px;
+    }
+    .search-content {
+        font-size: 1rem;
+        width: 100%;
+        margin-left: 13%;
+        color: #676871;
+        padding-top: 20px;
+        font-weight: bold;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .input-group {
+        width: 120%;
+        margin-left: 4%;
+    }
+
+    .search-content {
+        font-size: 1rem;
+        width: 120%;
+        margin-left: 8%;
+        color: #676871;
+        padding-top: 20px;
+        font-weight: bold;
+    }
+
+    .line{
+        display: block;
+        margin: 0 auto;
+        padding: 0;
+        height: 0px;
+        border: 1px solid #ffffff;
+        width: 25%;
+        background: #000;
+    }
+}
 </style>
 </head>
 <body>
 
+	@include('layouts.header')
     <div class="container-fluid">
-        <nav class="navbar navbar-expand-sm navbar-light">
-            <a class="navbar-brand" href="#">
-                <img src="https://res.cloudinary.com/fabianuzukwu/image/upload/v1571749198/c09e9odiqy2cvkosfubl.png" class="img-fluid navimg">
-            </a>
-            <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
-                aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="collapsibleNavId">
-                <ul class="navbar-nav ml-auto mt-2 mt-lg-0 p-4">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <i class="fa fa-user-circle d-flex" aria-hidden="true"><h5 class="h3 pl-2">Willie Walters</h5></i>
-                        </a>
-                    </li>
-                    <li class="nav-item ml-5 d-flex justify-content-center">
-                        <a class="nav-link btn btn-primary btn-block btn-lg text-white navbtn" href="#" role="button">Posts</a>
-                    </li>
-            </div>
-        </nav>
+	
 
         <div class="jumbotron col-sm-12 col-md-12 col-lg-12">
             <h2 class="h2 text-white text-center don">Make A Donation</h2>
@@ -111,11 +296,13 @@
                     <div class="d-flex justify-content-center">
                         <button  type="button" class="btn btn-dark col-sm-6 col-md-10 col-lg-9 mt-3" onClick="payWithRave()">DONATE NOW</button>
                     </div>
+					
                 </div>
             </div>
+			
         </div>
-
-        @include('layouts.footer')
+		@include('layouts.footer')
+        
     </div>
 
 

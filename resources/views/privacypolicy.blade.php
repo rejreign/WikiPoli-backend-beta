@@ -124,12 +124,7 @@
 <body>
         <main class="container-fluid"> 
                 <div class="row  d-sm-flex justify-content-around head">
-                    <div class="col-sm-3">  
-                        <img src="https://res.cloudinary.com/partypack/image/upload/v1571741441/wikiPoli5_8_p1rvip.jpg" alt="logo" class="logo"/>
-                    </div>
-                    <div class="col-sm-8 mt-sm-5 d-sm-flex flex-sm-row header">
-                    <p class="posts"><a href="{{ url('/posts') }}">Posts</a></p>
-                    </div>
+                @include('layouts.header')
                 </div>
         
 

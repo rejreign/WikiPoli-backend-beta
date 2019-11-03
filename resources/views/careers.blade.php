@@ -193,30 +193,7 @@ line-height: 1.5;
 
 <body>
     <!-- Navigation bar -->
-    <nav class="navbar navbar-expand-lg navbar-custom bg-custom">
-        <div class="container">
-            <a href="{{ url('/posts') }}" class="logo"><img
-                    src="https://res.cloudinary.com/fabianuzukwu/image/upload/v1571749198/c09e9odiqy2cvkosfubl.png"
-                    alt="logo" class="img-fluid" width="150px;"></a>
-            <button class="navbar-toggler float-right custom-toggler" type="button" data-toggle="collapse"
-                data-target="#navbar9" style="color: #213dcd;">
-                <span class=" show-nav navbar-toggler-icon"></span>
-            </button>
-            <div class="navbar-collapse collapse" id="navbar9">
-                <ul class="navbar-nav ml-auto">
-                    , <li class="navbar-item mr-5">
-                        <a href="{{ url('/posts') }}" class="btn navbar-link" id="signUp">Home</a>
-                    </li>
-                    <li class="navbar-item mr-5">
-                        <a href="about.html" class="btn navbar-link" id="signUp">About Us</a>
-                    </li>
-                    <li class="navbar-item mr-5">
-                        <a href="contact.html" class="btn navbar-link" id="signUp">Contact Us</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    @include('layouts.header')
 
     <div class="join-team w-100">
         <h2>Join Our Team</h2>
