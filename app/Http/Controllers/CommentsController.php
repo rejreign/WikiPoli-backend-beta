@@ -42,7 +42,7 @@ class CommentsController extends Controller
         ]);
 
         $comment = new Comment;
-        $comment->user_id = $request->input('user');
+        $comment->user = $request->input('user');
         $comment->comment = $request->input('comment');
         $comment->post_id = $postId;
 
