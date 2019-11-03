@@ -26,8 +26,7 @@
 						<p>
 							{!! textShorten($post->body) !!}
 						</p>
-						<a href="/post/{{ $post->id }}" class="btn btn-info">Read More</a>
-					
+						<a href="/post/{{ $post->slug }}" class="btn btn-info">Read More</a>
 					<div class="icon mt-4">
 						<!--<a href="" class="" aria-hideen="true"><img src="https://res.cloudinary.com/siyfa/image/upload/v1571760606/zbjtlwqjffgwvyc9klvc.png" style="width: 25px;"></a>-->
 						<!-- twitter -->
