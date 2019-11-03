@@ -13,7 +13,7 @@
  */
 
 Route::get('/', function () {
-    return view('web.index');
+    return view('indexnew');
 });
 Route::get('/Terms', function () {
     return view('Terms-of-use');
@@ -38,8 +38,9 @@ Route::get('/posts', 'PostsController@index');
 //search
 Route::get('/search', 'PostsController@search')->name('search');
 
-Route::get('/post/{id}', 'PostsController@show')->name('post.show');
+Route::get('/posts/{id}/{post_title}', 'PostsController@show')->name('post.show');
 Route::post('/comments/{id}', 'CommentsController@store');
+Route::get('/user_profile', 'Post\PostController@userprofile');
 
 
 // Auth::routes();
@@ -56,6 +57,7 @@ Route::get('/home', 'PostsController@index')->name('home');
 Route::get('/create-post', 'Post\PostController@index');
 Route::post('/create-post', 'Post\PostController@create');
 Route::post('/draf-post', 'Post\PostController@draft');
+
 
 
 
