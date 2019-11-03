@@ -51,7 +51,7 @@ Route::post('/comments/{id}', 'CommentsController@store');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'PostsController@index')->name('home');
 //user creae post
 Route::get('/create-post', 'Post\PostController@index');
 Route::post('/create-post', 'Post\PostController@create');

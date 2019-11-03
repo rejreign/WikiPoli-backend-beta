@@ -51,8 +51,10 @@ class PostsController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function show($id) {
+
         $post = Post::find($id);
         return view('readmore')->with('post', $post);
+
     }
 
     /**

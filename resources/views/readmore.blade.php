@@ -82,24 +82,28 @@
       <div class="col-md-7">
       </div>
       <div class="col-md-5">
+           <form action="{{url('search')}}" method="get">
         <div class="input-group mb-3" style="text-align-last: inherit;">
-          <input type="text" class="form-control" id="input" placeholder="Enter Politicial Name"/>
+          <input type="text" name="q" class="form-control" id="input" placeholder="Enter Politicial Name"/>
           <div class="input-group-append">
-            <span class="input-group-text">Search</span>
+            <button type="submit"class="input-group-text">Search</button>
           </div>
         </div>
+           </form>
       </div>
     </div>
     @else 
     <div class="col-md-7">
     </div>
     <div class="col-md-5">
+         <form action="{{url('search')}}" method="get">
       <div class="input-group mb-3" style="text-align-last: inherit;">
-        <input type="text" class="form-control" id="input" placeholder="Enter Politicial Name"/>
+        <input type="text" name="q" class="form-control" id="input" placeholder="Enter Politicial Name"/>
         <div class="input-group-append">
-          <span class="input-group-text">Search</span>
+          <button type="submit" class="input-group-text">Search</button>
         </div>
       </div>
+         </form>
     </div>
     @endif    
       <br />
@@ -173,7 +177,7 @@
             {{-- check if user is logged in --}}
 
                 {{-- Form --}}
-                <form method="POST" action="{{ url('/comments/'.$post->id) }}">
+                <form method="POST" action="{{ url('/comments/'.$post ?? ''->id) }}">
                   @csrf
 
                   <div class="form-group row">
@@ -187,7 +191,7 @@
                     @enderror
                   </div>
                   <input type="hidden" name="user" value="{{ Auth::user()->full_name }}">
-                  <input type="hidden" name="post_id" value="{{ $post->post_id }}">
+                  <input type="hidden" name="post_id" value="{{ $post ?? ''->post_id }}">
 
                   <div class="form-group row mb-0">
                     <div class="">
