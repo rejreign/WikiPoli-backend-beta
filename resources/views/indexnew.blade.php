@@ -6,6 +6,8 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0-11/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
 <title>WikiPoli</title>
 <style>
@@ -212,7 +214,7 @@
 
         <hr class="mt-4">
             
-        <!-- <footer>
+        <footer>
             <div class="row">
                 <div class="mt-5 col-sm-12 col-md-3 col-lg-3">
                     <h4 class="h4 text-center text-primary mb-4">Legal</h4>
@@ -245,7 +247,7 @@
                 </div>
             </div>
             <p class="text-center  mt-5 copy">&copy;2019 WikiPoli. All Rights Reserved</p>
-        </footer> -->
+        </footer>
             
     </div>
 
