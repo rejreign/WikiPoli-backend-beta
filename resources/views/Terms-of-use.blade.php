@@ -312,43 +312,8 @@ width: 100%;
             </p>
         </div>
     </div>
-    <footer>
-			<div id="footer">
-				<div class="container">
-					<div class="row links">
-						<div class="col-md-4 col-sm-12  text-center">
-							<ul class="quick-links">
-								<li>Legal</li>
-								<li><a href="{{ url('/Terms') }}">Terms of Use</a></li>
-								<li><a href="{{ url('/PrivacyPolicy') }}">Privacy Policy</a></li>
-							</ul>
-						</div>
-						<div class="col-md-4 col-sm-12  text-center">
-							<ul class="quick-links">
-								<li>Company</li>
-								<li><a href="{{ url('/About') }}">About</a></li>
-								<li><a href="{{ url('/Careers') }}">Careers</a></li>
-								<li><a href="{{ url('/FAQs') }}">FAQs</a></li>
-								<li><a href="{{ url('/Donation') }}">Donations</a></li>
-							</ul>
-						</div>
-	
-						<div class="col-md-4 col-sm-12  text-center">
-							<div class="text-center social-links">
-								<h3>Connect With Us</h3>
-								<a href="facebook.com"><span class="fa fa-facebook"></span></a>
-								<a href="twitter.com"><span class="fa fa-twitter"></span></a>
-								<a href="instagram.com"><span class="fa fa-instagram"></span></a>
-								<p>contact@wikipoli.gq</p>
-							</div>
-						</div>
-						<div class="col-lg-12 copyright text-center">
-							<p>&copy; 2019 Wikipoli - All Rights Reserved</p>
-						</div>
-					</div>
-				</div> 
-			</div>
-		</footer>
+    @include('layouts.footer')
+
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
