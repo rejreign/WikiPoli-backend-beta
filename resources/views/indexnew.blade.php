@@ -212,7 +212,7 @@
 
         <hr class="mt-4">
             
-        <footer>
+        <!-- <footer>
             <div class="row">
                 <div class="mt-5 col-sm-12 col-md-3 col-lg-3">
                     <h4 class="h4 text-center text-primary mb-4">Legal</h4>
@@ -245,7 +245,7 @@
                 </div>
             </div>
             <p class="text-center  mt-5 copy">&copy;2019 WikiPoli. All Rights Reserved</p>
-        </footer>
+        </footer> -->
             
     </div>
 

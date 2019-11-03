@@ -35,7 +35,29 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = request()->validate([
+            'comment' => 'required|min:5|max:5000'
+        ]);
+
+        $comment = new Comment;
+        $comment->user = $request->input('user_id');
+        $comment->comment = $request->input('comment');
+        $comment->post_id = $postId;
+
+        $comment->save();
+        
+        if ($comment->save()) {
+            $notification = array(
+                'message'    => 'Comment Added Successfully!',
+                'alert-type' => 'success'
+            );
+        } else {
+            $notification = array(
+                'message'    => 'Comment Not Added, Please Try Again!',
+                'alert-type' => 'error'
+            );
+        }
+        return redirect()->back()->with($notification);
     }
 
     /**
