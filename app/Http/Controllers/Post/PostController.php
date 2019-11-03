@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Redirect;
 use App\Http\Controllers\Traits\HasError;
 use App\Models\Post;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class PostController extends Controller {
 
@@ -88,6 +89,17 @@ class PostController extends Controller {
     public function draft(Request $request) {
 
         dd('todo');
+    }
+
+    public function userprofile(){
+
+        if(Auth::check()){
+            
+            $user=Auth::user();
+            $posts=DB::table('posts')->where('author_id', $user->id)->get();
+            return(view('web.post.user_profile',['user'=>$user,'posts'=>$posts]));
+            //echo $posts;
+        }
     }
 
 }

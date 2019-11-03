@@ -40,6 +40,7 @@ Route::get('/posts', 'PostsController@index');
 
 Route::get('/post/{id}', 'PostsController@show')->name('post.show');
 Route::post('/comments/{id}', 'CommentsController@store');
+Route::get('/user_profile', 'Post\PostController@userprofile');
 
 
 // Auth::routes();
