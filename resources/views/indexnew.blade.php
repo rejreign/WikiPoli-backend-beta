@@ -218,7 +218,7 @@
             <div class="row">
                 <div class="mt-5 col-sm-12 col-md-3 col-lg-3">
                     <h4 class="h4 text-center text-primary mb-4">Legal</h4>
-                    <li class="text-center list"><a href="{{ url('/terms') }}">Terms Of Use</a></li>
+                    <li class="text-center list"><a href="{{ url('/Terms') }}">Terms Of Use</a></li>
                     <li class="text-center list"><a href="{{ url('/PrivacyPolicy') }}">Privacy Policy</a> </li>  
                 </div>
 
