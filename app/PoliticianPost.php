@@ -11,7 +11,7 @@ class PoliticianPost extends Model
     ];
     
      public function post() {
-        return $this->hasMany(Post::class, 'id');
+        return $this->hasMany(Post::class, 'id')->whereStatus(1);
         
     }
 }

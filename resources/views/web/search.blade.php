@@ -5,6 +5,21 @@
 @section('content')
 <div class="clearfix"></div>
 <br/>
+	<?php
+				function textShorten($text, $limit = 400){
+					$text = $text. " ";
+					$text = substr($text, 0, $limit);
+					$text = substr($text, 0, strrpos($text, ' '));
+					$text = $text."...";
+					return $text;
+				}
+
+				// function to rewrite the title for valid SEO
+				function rewriteText($string) {
+					$text = preg_replace('/[^-a-z0-9-]+/', '-', strtolower($string));
+					return $text;
+				}
+			?>
 <div class="profile-tabs">
     <div class="container">
         <div class="row">
@@ -42,15 +57,17 @@
                     <div class="tab-pane fade show " id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
                         <div class="container main">
                             <div class="row">
-                                @foreach($results as $reault)
+                                @foreach($results as $result)
                                 @foreach($result->politicianpost as $read)
                                 @foreach($read->post as $p)
 
                                 <div class="col-sm col-md-5" id="post-1">
                                     <div class="post">
-                                        <h4>ProfErons</h4>
-                                        <p><strong>Felatoye Durotoye</strong>  is a Leadership Expert, Motivational Speaker . Lorem ipsumsit amet, consectetur adipiscing elsit amet, consectetur adipiscing elsit amet, consectetur adipiscing el  <a href="">Read More</a>
+                                        <h4>{{$p->title}}</h4>
+                                        <p>
+                                      {!! textShorten($p->body) !!}
                                         </p>
+                                        	<a href="/posts/{{ $p->id }}/{{ rewriteText($p->title) }}" class="btn btn-info">Read More</a>
                                     </div>
                                 </div>
 
