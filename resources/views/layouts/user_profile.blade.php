@@ -5,13 +5,15 @@
 	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>WikiPoli | Posts</title>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href= "{{ asset('css/postpage1.css') }}"/>
+    <link rel="stylesheet" type="text/css" href= "{{ asset('styles/userprofile.css') }}"/>
 	<link rel="stylesheet" href="{{ asset('css/index.css') }}"/>
 	<link rel="icon" type="img/png" href="{{asset('images/favicon.png')}}">
 	
@@ -42,7 +44,7 @@
     </style>
 </head>
     <body>
-            @include('layouts.postList_navbar')
+             @include('layouts.postList_navbar')
             @yield('content')
 
 

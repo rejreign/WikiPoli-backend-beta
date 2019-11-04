@@ -13,7 +13,7 @@
  */
 
 Route::get('/', function () {
-    return view('web.index');
+    return view('indexnew');
 });
 Route::get('/Terms', function () {
     return view('Terms-of-use');
@@ -40,8 +40,9 @@ Route::get('/search', 'PostsController@search')->name('search');
 
 Route::get('/posts/{id}/{post_title}', 'PostsController@show')->name('post.show');
 Route::post('/comments/{id}', 'CommentsController@store');
+Route::get('/user_profile', 'Post\PostController@userprofile');
 
- 
+
 // Auth::routes();
 // Route::get('/home', 'HomeController@index')->name('home');
 // Route::group(['middleware' => ['auth']], function () {
@@ -60,6 +61,7 @@ Route::post('/draf-post', 'Post\PostController@draft');
 
 
 
+
 //Admin Routes
 Route::group(['middleware' => ['role:SuperAdmin|Admin']], function () {
     Route::get('/admin/home', 'Admin\AdminController@index')->name('admin.home');
@@ -70,7 +72,9 @@ Route::group(['middleware' => ['role:SuperAdmin|Admin']], function () {
     Route::post('delete-temporary-post/{id}', 'Admin\AdminController@deleteTemporary');
     Route::post('delete-permanently-post/{id}', 'Admin\AdminController@deletePermanently');
     Route::post('delete-restore-post/{id}', 'Admin\AdminController@restore');
-
+    Route::get('/admin/edit-post/{id}', 'Admin\AdminController@showEdit')->name('admin.edit-post');
+     Route::get('/admin/view-post/{id}', 'Admin\AdminController@viewEdit')->name('admin.view-post');
+    Route::post('edit-post', 'Admin\AdminController@edit');
     //users
     Route::get('/admin/users', 'Admin\AdminController@userGet')->name('admin.users');
     Route::post('block-user/{id}', 'Admin\AdminController@block');
@@ -87,9 +91,8 @@ Route::group(['middleware' => ['role:SuperAdmin|Admin']], function () {
     Route::get('/admin/all-admins', 'Admin\AdminController@adminGet')->name('admin.all-admins');
     //recent Activities
     Route::get('/admin/activities', 'Admin\AdminController@activity')->name('admin.activities');
-    
+
     //politicians
     Route::get('/admin/politicians', 'Admin\AdminController@politicianGet')->name('admin.politicians');
-     Route::post('add-politician', 'Admin\AdminController@addPolitician');
-    
+    Route::post('add-politician', 'Admin\AdminController@addPolitician');
 });
