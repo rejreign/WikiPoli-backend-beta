@@ -6,6 +6,8 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0-11/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{{ asset('css/styles/style.css') }}"/>
 <title>Title</title>
@@ -25,7 +27,7 @@
         width: 190px;
     }
     .jumbotron {
-        margin-top: -2em;
+        margin-top: 1em;
         height: 20em;
         width: 100%;
         background: url("https://res.cloudinary.com/ufonumo/image/upload/v1571835995/photo-1531206715517-5c0ba140b2b8_l0vc2u.jpg");
@@ -262,10 +264,11 @@ h1 {
 </head>
 <body>
 
-	@include('layouts.header')
-    <div class="container-fluid">
 	
-
+    <div class="container-fluid">
+	    <div>
+            @include('layouts.header')
+        </div>
         <div class="jumbotron col-sm-12 col-md-12 col-lg-12">
             <h2 class="h2 text-white text-center don">Make A Donation</h2>
         </div>
