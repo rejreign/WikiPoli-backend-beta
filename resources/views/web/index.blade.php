@@ -124,7 +124,7 @@
         <div class="d-flex justify-content-center">
 
             <input type="text" class="form-control m-2" placeholder="Enter Candidate's Name">
-            <button type="submit" class="btn btn-primary search h-5">Search</button>
+            <button type="submit" class="btn btn-primary search">Search</button>
 
         </div>
     </form>
