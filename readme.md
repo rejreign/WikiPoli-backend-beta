@@ -22,3 +22,7 @@ WikiPoli is a ...
 - php artisan migrate:fresh --seed <br>
 - php artisan passport:install <br>
 - php artisan serve <br>
+<br>
+- composer require spatie/laravel-searchable <br>
+- php artisan migrate <br>
+- composer require intervention/image <br>
