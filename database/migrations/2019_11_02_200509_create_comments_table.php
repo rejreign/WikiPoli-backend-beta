@@ -14,10 +14,12 @@ class CreateCommentsTable extends Migration {
     public function up() {
         Schema::create('comments', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('user');
+            $table->unsignedBigInteger('user_id');
             $table->text('comment');
             $table->unsignedBigInteger('post_id');
             $table->timestamps();
+            $table->foreign('user_id')
+                    ->references('id')->on('users')->onUpdate('cascade');
             $table->foreign('post_id')
                     ->references('id')->on('posts')->onUpdate('cascade');
         });
