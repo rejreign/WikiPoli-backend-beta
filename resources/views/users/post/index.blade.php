@@ -73,16 +73,9 @@ var quill = new Quill('#editor', {
     $(document).ready(function () {
         $("#addpost button").click(function (ev) {
             ev.preventDefault();
-            var myEditor = document.querySelector('#editor');
-            var title = jQuery('#post-title').val();
-            var html = myEditor.children[0].innerHTML;
-            var fd = new FormData();
-            fd.append('body', html);
-             fd.append('title', title);
-            fd.append('file', document.getElementById("customFile","post_title").files[0]);
-
             if ($(this).attr("value") === "draft") {
-
+                var myEditor = document.querySelector('#editor');
+                var html = myEditor.children[0].innerHTML;
                 $.ajaxSetup({
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -100,7 +93,7 @@ var quill = new Quill('#editor', {
                     data: {
                         title: jQuery('#post_title').val(),
                         body: html,
-                        file: files
+                        file: new FormData($("#customFile")[0]) 
 
 
                     },
@@ -128,7 +121,9 @@ var quill = new Quill('#editor', {
                 });
 
             }
-            if ($(this).attr("value") === "post") {
+            if ($(this).attr("value") == "post") {
+                var myEditor = document.querySelector('#editor');
+                var html = myEditor.children[0].innerHTML;
                 $.ajaxSetup({
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -143,9 +138,13 @@ var quill = new Quill('#editor', {
                 jQuery.ajax({
                     url: "{{url('/create-post')}}",
                     type: 'POST',
-                    data: fd,
-                    contentType: false,
-                    processData: false,
+                    data: {
+                        title: jQuery('#post-title').val(),
+                        body: html,
+                        file: jQuery('#customFile').val() 
+
+
+                    },
                     success: function (data) {
                         if (data.status === 401) {
                             jQuery.each(data.message, function (key, value) {

@@ -28,6 +28,7 @@ class PostController extends Controller {
 
     public function create(Request $request) {
         $input = $request->all();
+       
         $rules = [
             'title' => ['required', 'string', 'unique:posts'],
             'body' => 'required',
@@ -42,6 +43,7 @@ class PostController extends Controller {
         $name = $request->title;
         if ($request->hasFile('file')) {
             $file = $request->file('file');
+dd($file);
             $extension = $file->getClientOriginalExtension();
             $nameslug = $this->slug($name, $extension);
             $file->move(public_path('/post/images'), $nameslug);
