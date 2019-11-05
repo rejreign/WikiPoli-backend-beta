@@ -51,7 +51,8 @@ class PostController extends Controller {
         $input['author_id'] = Auth::user()->id;
         $title = $request->title;
         $input['slug'] = $this->makeSlug($title);
-        //check mention
+        
+//check mention
         $body = strip_tags($request->body);
 
         $post = Post::create($input);
