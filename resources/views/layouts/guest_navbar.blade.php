@@ -2,6 +2,10 @@
 <nav class="navbar navbar-expand-sm navbar-light">
                 <a class="navbar-brand" href="{{url('/')}}"></a>
     <img src="https://res.cloudinary.com/fabianuzukwu/image/upload/v1571749198/c09e9odiqy2cvkosfubl.png" class="navimg">
+
+
+<nav class="navbar navbar-expand-sm navbar-light">
+                <a href="{{url('/')}}"><img src="https://res.cloudinary.com/fabianuzukwu/image/upload/v1571749198/c09e9odiqy2cvkosfubl.png"></a>
                     <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
                         aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
