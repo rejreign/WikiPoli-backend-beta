@@ -27,15 +27,26 @@ class PostController extends Controller {
 
     public function create(Request $request) {
         $input = $request->all();
+       
         $rules = [
             'title' => ['required', 'string', 'unique:posts'],
-            'body' => 'required'
+            'body' => 'required',
+            'file' => 'required|max:1024|mimes:png,jpg,jpeg'
         ];
 
 
         $error = static::getErrorMessageAjax($input, $rules);
         if ($error) {
             return $error;
+        }
+        $name = $request->title;
+        if ($request->hasFile('file')) {
+            $file = $request->file('file');
+dd($file);
+            $extension = $file->getClientOriginalExtension();
+            $nameslug = $this->slug($name, $extension);
+            $file->move(public_path('/post/images'), $nameslug);
+            $input['file'] = 'post/images/' . $nameslug;
         }
         $input['status'] = 0;
         $input['author_id'] = Auth::user()->id;
@@ -70,16 +81,15 @@ class PostController extends Controller {
         ]);
     }
 
-    public function userprofile(){
+    public function userprofile() {
 
-        if(Auth::check()){
-            
-            $user=Auth::user();
-            $posts=DB::table('posts')->where('author_id', $user->id)->get();
-            return(view('web.post.user_profile',['user'=>$user,'posts'=>$posts]));
+        if (Auth::check()) {
+
+            $user = Auth::user();
+            $posts = DB::table('posts')->where('author_id', $user->id)->get();
+            return(view('web.post.user_profile', ['user' => $user, 'posts' => $posts]));
             //echo $posts;
         }
     }
 
-   
 }

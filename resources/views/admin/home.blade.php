@@ -32,11 +32,9 @@
         <a href="{{url('admin/users')}}">Users
            <span style="color: red!important">({{number_format($users)}})</span>
         </a>
-        @hasanyrole('SuperAdmin')
         <a href="{{url('admin/politicians')}}">Politicians
               <span style="color: red!important">({{number_format($politicians)}})</span>
         </a>
-        @endhasanyrole
     </section>
 </main>
 @endsection

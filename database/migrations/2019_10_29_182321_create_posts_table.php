@@ -17,6 +17,7 @@ class CreatePostsTable extends Migration {
             $table->text('title', 255);
             $table->longtext('slug');
             $table->longtext('body');
+            $table->longtext('file');
             $table->unsignedBigInteger('author_id');
             $table->boolean('status')->default(0);
             $table->timestamps();

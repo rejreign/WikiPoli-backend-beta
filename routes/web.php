@@ -11,10 +11,11 @@
   | contains the "web" middleware group. Now create something great!
   |
  */
+Route::group(['namespace' => 'Web'], function () {
 
-Route::get('/', function () {
-    return view('indexnew');
+    Route::get('/', 'WebController@home');
 });
+
 Route::get('/Terms', function () {
     return view('Terms-of-use');
 });
@@ -73,7 +74,7 @@ Route::group(['middleware' => ['role:SuperAdmin|Admin']], function () {
     Route::post('delete-permanently-post/{id}', 'Admin\AdminController@deletePermanently');
     Route::post('delete-restore-post/{id}', 'Admin\AdminController@restore');
     Route::get('/admin/edit-post/{id}', 'Admin\AdminController@showEdit')->name('admin.edit-post');
-     Route::get('/admin/view-post/{id}', 'Admin\AdminController@viewEdit')->name('admin.view-post');
+    Route::get('/admin/view-post/{id}', 'Admin\AdminController@viewEdit')->name('admin.view-post');
     Route::post('edit-post', 'Admin\AdminController@edit');
     //users
     Route::get('/admin/users', 'Admin\AdminController@userGet')->name('admin.users');
