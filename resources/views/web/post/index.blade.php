@@ -4,22 +4,7 @@
 @section('style')
 <style>
 
-    body {
-        font-family: 'Nunito', sans-serif;
-        height: 100vh;
-    }
-
-    .navbar {
-        margin-right: -0.8em;
-        margin-left: -0.8em;
-        margin-top: -1.8em;
-    }
-
-    .nav-link {
-        font-size: 1.2em;
-        font-weight: 300;
-    }
-
+  
     .first {
         margin-left: 3.5em;
         margin-right: 3.5em;
@@ -84,38 +69,8 @@
         }
     }
 
-    @media only screen and (max-width: 575px) {
-        .navbar {
-            margin-top: -1.8em;
-        }
+   
 
-        .nav-link {
-            font-size: 1.2em;
-            font-weight: 300;
-        }
-
-        p {
-            font-size: 0.9em;
-        }
-    }
-
-    @media only screen and (width: 375px) {
-        .navimg {
-            margin-left: -8em;
-        }
-        .first {
-            margin: auto;
-        }
-    }
-
-    @media only screen and (width: 425px) {
-        .navimg {
-            margin-left: -10em;
-        }
-        .first {
-            margin: auto;
-        }
-    }
     @media only screen and (min-width: 768px) {
         .navimg {
             margin-left: -1.5em;
@@ -167,29 +122,31 @@
 @Auth
 
 <div class="d-flex first">
-    <a href="{{url('create-post')}}" class="ml-auto h5"><i class="fas fa-plus-circle"></i> Add Post</a>
+    <a href="{{url('create-post')}}" class="ml-auto h5" style="color:#1257AE"><i class="fas fa-plus-circle"></i> Add Post</a>
 </div>
 @endAuth
 
 <div class="row">
     @forelse($posts as $post)
     <div class="col-sm-12 col-md-4 col-lg-3 mt-5 cardi">
-        <a href="#">
-            <img class="img-fluid" src="{{asset($post->file)}}">
+        <a href="{{url('posts/'.$post->slug)}}">
+            <img class="img-fluid"  src="{{asset($post->file)}}">
             <div>
-                <h5 class="h5 mb-2 mt-2">{{$post->cutTitle()}}</h5>
+                <h5 class="h5 mb-2 mt-2" style="color:#1257AE">{{$post->cutTitle()}}</h5>
                 <p class="text-dark">{{$post->cutBody()}}</p>
             </div>
         </a>
         @Auth
 
-        <div>
-            <a href="#"><i class="fa fa-thumbs-up pr-3" aria-hidden="true"></i></a>
-            <a href="#"><i class="fa fa-thumbs-down pr-3" aria-hidden="true"></i></a>
-            <a href="#"><i class="fa fa-reply" aria-hidden="true"></i></a>
-            <a href="#"><i class="fab fa-facebook  float-right" aria-hidden="true"></i></a>
-            <a href="#"><i class="fab fa-twitter pr-3 float-right"></i></a>
-        </div>
+      <div>
+                <a href="#"><i class="fa fa-thumbs-up pr-3" aria-hidden="true" style="color:#1257AE"></i></a>
+                <a href="#"><i class="fa fa-thumbs-down pr-3" aria-hidden="true" style="color:#1257AE"></i></a>
+                <a href="#"><i class="fa fa-reply" aria-hidden="true" style="color:#1257AE"></i></a>
+                <a href="#" onclick="window.open('http://www.facebook.com/sharer.php?u={{url('posts/'.$post->slug)}}& amp; t={{$post->title}}', 'facebookShare', 'width=626,height=436');
+                    return false;" title="Share on Facebook"><i class="fab fa-facebook  float-right" aria-hidden="true" style="color:#1257AE"></i></a>
+                <a href="#" onclick="window.open('http://twitter.com/share?text={{$post->title}} - & amp; url={{url('posts/'.$post->slug)}}', 'twitterShare', 'width=626,height=436');
+                    return false;" title="Tweet This Post"><i class="fab fa-twitter pr-3 float-right"></i></a>
+            </div>
         @endAuth
     </div>
     @empty
@@ -211,7 +168,6 @@
 
 
 
-<hr class="mt-3">
 @section('footer')
 @include('layouts.footer')
 @endsection

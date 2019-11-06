@@ -3,19 +3,24 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-// bring in the relationships
 use App\Comment;
-use App\Models\Post;
-class CommentsController extends Controller
-{
+use App\Http\Controllers\Traits\HasError;
+use Illuminate\Support\Facades\Auth;
+
+class CommentsController extends Controller {
+
+    use HasError;
+
+    public function __construct() {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
+    public function index() {
         //
     }
 
@@ -24,8 +29,7 @@ class CommentsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
+    public function create() {
         //
     }
 
@@ -35,31 +39,21 @@ class CommentsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, $postId)
-    {
-        $data = request()->validate([
-            'comment' => 'required|min:5|max:5000'
-        ]);
-
-        $comment = new Comment;
-        $comment->user = $request->input('user');
-        $comment->comment = $request->input('comment');
-        $comment->post_id = $postId;
-
-        $comment->save();
-        
-        if ($comment->save()) {
-            $notification = array(
-                'message'    => 'Comment Added Successfully!',
-                'alert-type' => 'success'
-            );
-        } else {
-            $notification = array(
-                'message'    => 'Comment Not Added, Please Try Again!',
-                'alert-type' => 'error'
-            );
+    public function store(Request $request) {
+        $input = $request->all();
+        $rules = [
+            'comment' => ['required', 'min:5', 'max:5000']
+        ];
+        $error = static::getErrorMessageAjax($input, $rules);
+        if ($error) {
+            return $error;
         }
-        return redirect()->back()->with($notification);
+        $input['user_id'] = Auth::user()->id;
+        Comment::create($input);
+        return ([
+            'status' => 200,
+            'message' => 'Success'
+        ]);
     }
 
     /**
@@ -68,8 +62,7 @@ class CommentsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
+    public function show($id) {
         //
     }
 
@@ -79,8 +72,7 @@ class CommentsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
+    public function edit($id) {
         //
     }
 
@@ -91,8 +83,7 @@ class CommentsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
+    public function update(Request $request, $id) {
         //
     }
 
@@ -102,8 +93,8 @@ class CommentsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
+    public function destroy($id) {
         //
     }
+
 }

@@ -9,7 +9,7 @@ use Laravel\Passport\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\UserStatus;
-
+use App\UserProfile;
 class User extends Authenticatable {
 
     use HasApiTokens,
@@ -46,5 +46,9 @@ class User extends Authenticatable {
 
     public function user_statuses() {
         return $this->belongsTo(UserStatus::class, 'status_id');
+    }
+
+    public function userProfile() {
+        return $this->hasOne(UserProfile::class, 'user_id');
     }
 }

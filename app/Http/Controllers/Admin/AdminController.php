@@ -16,6 +16,10 @@ class AdminController extends Controller {
 
     use HasError;
 
+    public function __construct() {
+        $this->middleware('auth');
+    }
+
     public function index() {
         $data['recents'] = Post::where('created_at', '>=', \Carbon\Carbon::now()->subDay())->count();
         $data['posts'] = Post::count();

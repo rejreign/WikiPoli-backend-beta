@@ -287,7 +287,7 @@
     </head>
 
     <body>
-        @include('layouts.register_sidebar')
+        @include('layouts.guest_navbar')
         <div class="container">
             <div class="container-inner">
                 <div class="cover-container">
