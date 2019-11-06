@@ -41,7 +41,7 @@
                         <a class="nav-link"  @if(request()->path() == 'login') id="nav-register" @endif href="{{url('login')}}"><strong>Login</strong></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link"  @if(request()->path() == 'register') id="nav-register" @endif href="{{url('register')}}" >Register</a>
+                        <a class="nav-link"  @if(request()->path() == 'register') id="nav-register" @endif href="{{url('register')}}" ><strong>Register</strong></a>
                     </li>
                     @endAuth
 

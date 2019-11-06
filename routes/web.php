@@ -35,6 +35,10 @@ Route::get('/Donation', function () {
     return view('donate_and_support_page');
 });
 
+//social login and reigster routes
+Route::get('/login/{social}', 'User\SocialController@socialLogin')->where('social', 'twitter|facebook');
+Route::get('/login/{social}/callback', 'User\SocialController@handleProviderCallback')->where('social', 'twitter|facebook');
+
 Route::get('/posts', 'PostsController@index');
 Route::get('/posts/{slug}', 'PostsController@show');
 Route::post('/post-comments', 'CommentsController@store');
