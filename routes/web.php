@@ -36,11 +36,11 @@ Route::get('/Donation', function () {
 });
 
 Route::get('/posts', 'PostsController@index');
+Route::get('/posts/{slug}', 'PostsController@show');
+Route::post('/post-comments', 'CommentsController@store');
 //search
 Route::get('/search', 'PostsController@search')->name('search');
 
-Route::get('/posts/{id}/{post_title}', 'PostsController@show')->name('post.show');
-Route::post('/comments/{id}', 'CommentsController@store');
 Route::get('/user_profile', 'Post\PostController@userprofile');
 Route::get('/edit/profile', 'Post\PostController@editUserProfile');
 Route::post('/edit/profile/{id}', 'Post\PostController@updateUserProfile');

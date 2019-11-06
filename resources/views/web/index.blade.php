@@ -123,7 +123,7 @@
     <form action="{{url('search')}}" method="get" >
         <div class="d-flex justify-content-center">
 
-            <input type="text" class="form-control m-2" placeholder="Enter Candidate's Name">
+            <input type="text" class="form-control m-2" name="q" placeholder="Enter Candidate's Name">
             <button type="submit" class="btn btn-primary search h-50">Search</button>
 
         </div>
@@ -143,7 +143,7 @@
     <div class="row disp">
         @forelse($posts as $post)
         <div class="col-sm-12 col-md-3 col-lg-3 cardi">
-            <a href="#">
+            <a href="{{url('posts/'.$post->slug)}}">
                 <img class="img-fluid" src="{{asset($post->file)}}">
                 <div>
                     <h5 class="h5 mb-2 mt-2">{{$post->cutTitle()}}</h5>
@@ -155,8 +155,10 @@
                 <a href="#"><i class="fa fa-thumbs-up pr-3" aria-hidden="true"></i></a>
                 <a href="#"><i class="fa fa-thumbs-down pr-3" aria-hidden="true"></i></a>
                 <a href="#"><i class="fa fa-reply" aria-hidden="true"></i></a>
-                <a href="#"><i class="fab fa-facebook  float-right" aria-hidden="true"></i></a>
-                <a href="#"><i class="fab fa-twitter pr-3 float-right"></i></a>
+                <a href="#" onclick="window.open('http://www.facebook.com/sharer.php?u={{url('posts/'.$post->slug)}}& amp; t={{$post->title}}', 'facebookShare', 'width=626,height=436');
+                    return false;" title="Share on Facebook"><i class="fab fa-facebook  float-right" aria-hidden="true"></i></a>
+                <a href="#" onclick="window.open('http://twitter.com/share?text={{$post->title}} - & amp; url={{url('posts/'.$post->slug)}}', 'twitterShare', 'width=626,height=436');
+                    return false;" title="Tweet This Post"><i class="fab fa-twitter pr-3 float-right"></i></a>
             </div>
             @endAuth
         </div>
