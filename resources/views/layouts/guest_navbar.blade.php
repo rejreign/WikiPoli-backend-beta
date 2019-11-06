@@ -17,7 +17,9 @@
                                                                                     <li class="nav-item dropdown">
                                                                                         <a class="nav-link text-primary pr-2 dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user" aria-hidden="true"></i> {{Auth::user()->username}}</a></a>
                                                                                         <div class="dropdown-menu bg-light" aria-labelledby="dropdownId">
-                                                                                            <a class="dropdown-item" href="{{ url('user_setting') }}">Settings</a>
+                                                                                            <a class="dropdown-item" href="{{ url('settings') }}">Settings</a>
+                                                                                            <div class="dropdown-divider"></div>
+                                                                                            <a class="dropdown-item" href="{{ url('Profile') }}">Profile</a>
                                                                                             <div class="dropdown-divider"></div>
                                                                                             <a href="{{ route('logout') }}" class="dropdown-item"
                                                                                                onclick="event.preventDefault();

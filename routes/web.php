@@ -41,9 +41,9 @@ Route::post('/post-comments', 'CommentsController@store');
 //search
 Route::get('/search', 'PostsController@search')->name('search');
 
-Route::get('/user_profile', 'Post\PostController@userprofile');
-Route::get('/edit/profile', 'Post\PostController@editUserProfile');
-Route::post('/edit/profile/{id}', 'Post\PostController@updateUserProfile');
+//user
+Route::get('/settings', 'User\UserController@setting');
+Route::get('/profile', 'User\UserController@profile');
 Route::post('/user_profile', 'Post\PostController@updateAvatar');
 
 
