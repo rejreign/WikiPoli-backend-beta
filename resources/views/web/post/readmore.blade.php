@@ -212,8 +212,10 @@
         <h3>{{$post->title}}</h3>
         <h5>Posted  on {{ date('F d, Y', strtotime($post->created_at)) }}</h5>
         <h5>Published by  <span> {{$post->user->username}}</span></h5>
-        <i class="fa fa-twitter-square "></i>
-        <i class="fa fa-facebook-square"></i>
+        <a href="#" onclick="window.open('http://twitter.com/share?text={{$post->title}} - & amp; url={{url('posts/'.$post->slug)}}', 'twitterShare', 'width=626,height=436');
+                    return false;" title="Tweet This Post"><i class="fa fa-twitter-square "></i></a>
+       <a href="#" onclick="window.open('http://www.facebook.com/sharer.php?u={{url('posts/'.$post->slug)}}& amp; t={{$post->title}}', 'facebookShare', 'width=626,height=436');
+                    return false;" title="Share on Facebook">  <i class="fa fa-facebook-square"></i> </a>
     </div>
 </div>
 
