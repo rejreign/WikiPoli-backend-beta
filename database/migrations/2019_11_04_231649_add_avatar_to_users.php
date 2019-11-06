@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUserTable extends Migration
+class AddAvatarToUsers extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,8 @@ class CreateUserTable extends Migration
      */
     public function up()
     {
-        Schema::table('users', function ($table) {
-            $table->string('api_token', 80)->after('password')
-                                ->unique()
-                                ->nullable()
-                                ->default(null);
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('avatar')->default('avatar.png')->after('password');
         });
     }
 
@@ -28,6 +25,8 @@ class CreateUserTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user');
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn(['avatar']);
+        });
     }
 }

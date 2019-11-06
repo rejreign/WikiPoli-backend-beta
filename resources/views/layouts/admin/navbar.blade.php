@@ -12,15 +12,11 @@
     <a href="{{url('admin/home')}}" class="sidebar-links @if(request()->path() == 'admin/home') sidebar-active-link @endif">Dashboard</a>
     <a href="{{url('admin/activities')}}" class="sidebar-links @if(request()->path() == 'admin/activities') sidebar-active-link @endif">Activities</a>
     <a href="{{url('admin/posts')}}" class="sidebar-links @if(request()->path() == 'admin/posts') sidebar-active-link @endif">Posts</a>
-   {{-- <a href="{{url('admin/approve-posts')}}" class="sidebar-links @if(request()->path() == 'admin/approve-posts') sidebar-active-link @endif">Approve Posts</a>--}}
     <a href="{{url('admin/users')}}" class="sidebar-links @if(request()->path() == 'admin/users') sidebar-active-link @endif">Users</a>
     <a href="{{url('admin/politicians')}}" class="sidebar-links @if(request()->path() == 'admin/politicians') sidebar-active-link @endif">Politicians</a> 
 	@hasanyrole('SuperAdmin')
     <a href="{{url('admin/all-admins')}}" class="sidebar-links @if(request()->path() == 'admin/all-admins') sidebar-active-link @endif">Admins</a>
     @endhasanyrole
-	 {{-- 
-    <a href="{{url('admin/privileges')}}" class="sidebar-links @if(request()->path() == 'admin/privileges') sidebar-active-link @endif">Manage Privileges</a>
-	--}}
     <a class="sidebar-links" href="{{ route('logout') }}"
        onclick="event.preventDefault();
                document.getElementById('logout-form').submit();">
