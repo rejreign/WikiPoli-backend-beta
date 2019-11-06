@@ -31,30 +31,7 @@
     .toast {
         opacity: 0.9!important;
     }
-    body {
-        font-family: 'Nunito', sans-serif;
-        padding-left: 1rem;
-        padding-right: 1rem;
-    }
-    .navbar {
-        margin-top: -1.8em;
-    }
-
-    .link {
-        text-decoration: none;
-    }
-    .nav-item {
-        margin: 1rem;
-    }
-    .nav-item .active {
-        background: #1257AE;
-        color: #FFFFFF !important;
-    }
-    .nav-item .active:hover {
-        color: #FFFFFF !important;
-    }
-
-
+  
     .row {
         align-self: auto;
         justify-content: center;
@@ -273,7 +250,6 @@
 </div>
 
 
-<hr class="mt-4">
 @section('footer')
 
 @include('layouts.footer')
