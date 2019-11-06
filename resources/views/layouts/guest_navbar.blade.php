@@ -19,7 +19,7 @@
                     </li>
                     @Auth
                     <li class="nav-item">
-                        <a class="nav-link" @if(request()->path() == 'profile') id="nav-register" @endif  href="{{url('profile')}}"><strong>{{Auth::user()->username}}</strong></a>
+                        <a class="nav-link" @if(request()->path() == 'settings') id="nav-register" @endif  href="{{url('settings')}}"><strong>{{Auth::user()->username}}</strong></a>
                     </li>
                    
                     
