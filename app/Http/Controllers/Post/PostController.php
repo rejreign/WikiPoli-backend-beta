@@ -28,7 +28,6 @@ class PostController extends Controller {
 
     public function create(Request $request) {
         $input = $request->all();
-       
         $rules = [
             'title' => ['required', 'string', 'unique:posts'],
             'body' => 'required',
@@ -43,7 +42,6 @@ class PostController extends Controller {
         $name = $request->title;
         if ($request->hasFile('file')) {
             $file = $request->file('file');
-dd($file);
             $extension = $file->getClientOriginalExtension();
             $nameslug = $this->slug($name, $extension);
             $file->move(public_path('/post/images'), $nameslug);
@@ -53,7 +51,8 @@ dd($file);
         $input['author_id'] = Auth::user()->id;
         $title = $request->title;
         $input['slug'] = $this->makeSlug($title);
-        //check mention
+        
+//check mention
         $body = strip_tags($request->body);
 
         $post = Post::create($input);
@@ -84,39 +83,39 @@ dd($file);
 
     public function userprofile() {
 
-        if(Auth::check()){
-            
-            $user=Auth::user();
-            $posts=DB::table('posts')->where('author_id', $user->id)->get();
-            return(view('web.post.user_profile',['user'=>$user,'posts'=>$posts]));
+        if (Auth::check()) {
+
+            $user = Auth::user();
+            $posts = DB::table('posts')->where('author_id', $user->id)->get();
+            return(view('web.post.user_profile', ['user' => $user, 'posts' => $posts]));
             //echo $posts; 
         }
     }
 
-    public function editUserProfile(){
+    public function editUserProfile() {
 
-        if(Auth::check()){
-            
-            $user=Auth::user();
-            $posts=DB::table('posts')->where('author_id', $user->id)->get();
+        if (Auth::check()) {
 
-            return(view('users.edit_profile',['user'=>$user,'posts'=>$posts]));
+            $user = Auth::user();
+            $posts = DB::table('posts')->where('author_id', $user->id)->get();
+
+            return(view('users.edit_profile', ['user' => $user, 'posts' => $posts]));
             //echo $posts; 
         }
     }
 
-    public function updateUserProfile(Request $request,$id) {
+    public function updateUserProfile(Request $request, $id) {
 
-        if(Auth::check()){
-            
-            $user=Auth::user();
-            $posts=DB::table('posts')->where('author_id', $user->id)->get();
+        if (Auth::check()) {
+
+            $user = Auth::user();
+            $posts = DB::table('posts')->where('author_id', $user->id)->get();
 
             $this->validate($request, [
-                'full_name'    =>  'required',
-                'email'     =>  'required',
-                'location'     =>  'required',
-                'description'     =>  'required',
+                'full_name' => 'required',
+                'email' => 'required',
+                'location' => 'required',
+                'description' => 'required',
             ]);
             $user = user::find($id);
             $user->full_name = $request->get('full_name');
@@ -137,25 +136,21 @@ dd($file);
             //return(view('web.post.user_profile',['user'=>$user,'posts'=>$posts]));
             //echo $posts; 
         }
+    }
 
-        
-     }
-
-    public function updateAvatar(Request $request){
+    public function updateAvatar(Request $request) {
         //handling the user upload of avatar
-        if($request->hasFile('avatar')){
-            $avatar =  $request->file('avatar');
+        if ($request->hasFile('avatar')) {
+            $avatar = $request->file('avatar');
             $filename = time() . '.' . $avatar->getClientOriginalExtension();
-            Image::make($avatar)->resize(300,300)->save(public_path( '/uploads/avatars/' . $filename ));
+            Image::make($avatar)->resize(300, 300)->save(public_path('/uploads/avatars/' . $filename));
 
             $user = Auth::user();
             $user->avatar = $filename;
             $user->save();
-            
         }
-        $posts=DB::table('posts')->where('author_id', $user->id)->get();
-        return(view('web.post.user_profile',['user'=>$user,'posts'=>$posts]));
+        $posts = DB::table('posts')->where('author_id', $user->id)->get();
+        return(view('web.post.user_profile', ['user' => $user, 'posts' => $posts]));
     }
 
-   
 }
