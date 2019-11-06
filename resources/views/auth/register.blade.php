@@ -187,7 +187,7 @@
     }
 </style>
 @endsection
-@extends('layouts.register')
+@extends('layouts.guest')
 @section('content')
 
 <div id="form_container">
