@@ -174,7 +174,7 @@
 <div class="row">
     @forelse($posts as $post)
     <div class="col-sm-12 col-md-4 col-lg-3 mt-5 cardi">
-        <a href="#">
+        <a href="{{url('posts/'.$post->slug)}}">
             <img class="img-fluid" src="{{asset($post->file)}}">
             <div>
                 <h5 class="h5 mb-2 mt-2">{{$post->cutTitle()}}</h5>
