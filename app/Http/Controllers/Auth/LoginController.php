@@ -32,7 +32,7 @@ use AuthenticatesUsers;
             session()->flash('login.content', 'Hello');
             return 'admin/home';
         } else {
-            return 'home';
+            return '/';
         }
     }
 

@@ -11,4 +11,10 @@ class WebController extends Controller
       return view('web.post.index', $data);
       
     }
+    
+     public function home() {
+      $data['posts'] = Post::with('user')->orderBy('id', 'DESC')->take(8)->get(); 
+      return view('web.index', $data);
+      
+    }
 }
