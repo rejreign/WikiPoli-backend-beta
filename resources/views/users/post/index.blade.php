@@ -1,5 +1,5 @@
 @section('title')
-<title>WikiPoli | Welcome</title>
+<title>WikiPoli | Create Post</title>
 @endsection
 @extends('layouts.post')
 @section('content')

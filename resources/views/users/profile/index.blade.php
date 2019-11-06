@@ -3,40 +3,12 @@
 @endsection
 @section('style')
 <style>
-    body {
-        font-family: 'Nunito', segoe UI, sans-serif;
-    }
+  
     .profile-input input, .profile-input select, .profile-input textarea{
         width: 50%!important;
     }
 
-    #header {
-        width: 100%;
-        padding: 0;
-    }
-
-    #header #navbar {
-        padding: 0;
-    }
-
-    #header .logo img {
-        width: 150px;
-    }
-
-    #header .navbar p {
-        font-size: 2rem;
-        color: #6D9BF1;
-    }
-
-    #header .menu .nav-link {
-        font-size: 1.1rem;
-        color: rgba(0, 0, 0, 0.7);
-        transition: 0.4s ease-out;
-    }
-
-    #header .menu .nav-link:hover {
-        color: blue;
-    }
+   
 
     #header .menu #nav-register {
         background-color: #1257AE;
@@ -93,15 +65,7 @@
 
     }
 
-    .navbar {
-        margin-top: -1.8em;
-    }
-
-    .nav-link {
-        font-size: 1.2em;
-        font-weight: 300;
-    }
-
+  
     .form-control {
         width: 35em;
     }
@@ -384,7 +348,6 @@
 </div>
 
 
-<hr class="mt-3">
 @section('footer')
 @include('layouts.footer')
 @endsection
