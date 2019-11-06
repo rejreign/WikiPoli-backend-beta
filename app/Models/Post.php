@@ -20,7 +20,6 @@ class Post extends Model {
 
     public function comments() {
         return $this->hasMany(Comment::class, 'post_id')->orderBy('created_at', 'DESC');
-        //return $this->hasMany('App\Comment');
     }
 
     public function cutBody() {
