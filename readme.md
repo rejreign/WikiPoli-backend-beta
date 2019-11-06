@@ -32,5 +32,5 @@ WikiPoli is a ...
 <h6>Run the below commands before sudo php artisan serve</h6> <br>
 - sudo chown -R www-data:www-data /var/www/wikipoli.gq/WikiPoli-backend-beta/storage  <br>
 - sudo chown -R www-data:www-data /var/www/wikipoli.gq/WikiPoli-backend-beta/bootstrap/cache <br>
-- sudo chown -R www-data:www-data /var/www/wikipoli.gq/WikiPoli-backend-beta/public/uploads/avatar <br>
+- sudo chown -R www-data:www-data /var/www/wikipoli.gq/WikiPoli-backend-beta/public/uploads/avatars <br>
 - sudo chown -R www-data:www-data /var/www/wikipoli.gq/WikiPoli-backend-beta/public/politician/photos <br>
