@@ -1,67 +1,46 @@
 <?php
 
 namespace App\Http\Controllers\User;
+
 use App\Http\Controllers\Controller;
-
 use Illuminate\Http\Request;
+use App\Http\Controllers\Traits\HasError;
+use App\UserProfile;
+use App\User;
+use Illuminate\Support\Facades\Auth;
 
-class UserController extends Controller
-{
-  public function userprofile() {
+class UserController extends Controller {
 
-        if (Auth::check()) {
+    use HasError;
 
-            $user = Auth::user();
-            $posts = DB::table('posts')->where('author_id', $user->id)->get();
-            return(view('web.post.user_profile', ['user' => $user, 'posts' => $posts]));
-            //echo $posts; 
-        }
+    public function __construct() {
+        $this->middleware('auth');
     }
 
-    public function editUserProfile() {
-
-        if (Auth::check()) {
-
-            $user = Auth::user();
-            $posts = DB::table('posts')->where('author_id', $user->id)->get();
-
-            return(view('users.edit_profile', ['user' => $user, 'posts' => $posts]));
-            //echo $posts; 
-        }
+    public function profile() {
+        return view('users.profile.index');
     }
 
-    public function updateUserProfile(Request $request, $id) {
+    public function edit(Request $request) {
 
-        if (Auth::check()) {
-
-            $user = Auth::user();
-            $posts = DB::table('posts')->where('author_id', $user->id)->get();
-
-            $this->validate($request, [
-                'full_name' => 'required',
-                'email' => 'required',
-                'location' => 'required',
-                'description' => 'required',
-            ]);
-            $user = user::find($id);
-            $user->full_name = $request->get('full_name');
-            $user->email = $request->get('email');
-            $user->location = $request->get('location');
-            $user->description = $request->get('description');
-            $user->save();
-            return redirect()->route('users.edit_profile')->with('success', 'Profile Updated');
-
-            // $full_name = $request->input('full_name');
-            // $email = $request->input('email');
-            // $location = $request->input('location');
-            // $description = $request->input('description');
-            // DB::update('update student set full_name = ?, email = ?, location = ?, description = ? where id = ?',[$first_name,$email,$location,$description,$id]);
-            //$posts=DB::table('posts')->where('author_id', $user->id)->get();
-            //echo "Record updated successfully.<br/>";
-            //echo '<a href = "/user_profile">Click Here</a> to go back.';
-            //return(view('web.post.user_profile',['user'=>$user,'posts'=>$posts]));
-            //echo $posts; 
-        }
+        $user = UserProfile::firstOrNew(array('user_id' => (Auth::user()->id)));
+        $user->user_id = Auth::user()->id;
+        $user->first_name = $request->first_name;
+        $user->last_name = $request->last_name;
+        $user->dob = $request->dob;
+        $user->gender = $request->gender;
+        $user->state = $request->state;
+        $user->facebook_url = $request->facebook_url;
+        $user->phone = $request->phone;
+        $user->address = $request->address;
+        $user->twitter_url = $request->twitter_url;
+        $user->linkedin_url = $request->linkedin_url;
+        $user->save();
+        //user
+        User::whereId(Auth::user()->id)->update(['email' => $request->email]);
+        session()->flash('message.alert', 'success');
+        session()->flash('message.content', "Profile Updated");
+        return back();
     }
 
     public function updateAvatar(Request $request) {
@@ -78,4 +57,5 @@ class UserController extends Controller
         $posts = DB::table('posts')->where('author_id', $user->id)->get();
         return(view('web.post.user_profile', ['user' => $user, 'posts' => $posts]));
     }
+
 }

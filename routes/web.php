@@ -44,8 +44,7 @@ Route::get('/search', 'PostsController@search')->name('search');
 //user
 Route::get('/settings', 'User\UserController@setting');
 Route::get('/profile', 'User\UserController@profile');
-Route::post('/user_profile', 'Post\PostController@updateAvatar');
-
+Route::post('/edit-profile', 'User\UserController@edit')->name('edit-profile');
 
 // Auth::routes();
 // Route::get('/home', 'HomeController@index')->name('home');

@@ -19,7 +19,7 @@
                                                                                         <div class="dropdown-menu bg-light" aria-labelledby="dropdownId">
                                                                                             <a class="dropdown-item" href="{{ url('settings') }}">Settings</a>
                                                                                             <div class="dropdown-divider"></div>
-                                                                                            <a class="dropdown-item" href="{{ url('Profile') }}">Profile</a>
+                                                                                            <a class="dropdown-item" href="{{ url('profile') }}">Profile</a>
                                                                                             <div class="dropdown-divider"></div>
                                                                                             <a href="{{ route('logout') }}" class="dropdown-item"
                                                                                                onclick="event.preventDefault();
