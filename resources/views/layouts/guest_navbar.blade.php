@@ -3,7 +3,7 @@
 <header id="header" class="container-fluid">
     <div class="container">
         <nav class="navbar navbar-expand-lg" id="navbar">
-            <a href="index.html" class="navbar-brand logo">
+            <a href="{{url('/')}}" class="navbar-brand logo">
                 <img src="https://res.cloudinary.com/fabianuzukwu/image/upload/v1571749198/c09e9odiqy2cvkosfubl.png" alt="WikiPoli Logo">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
