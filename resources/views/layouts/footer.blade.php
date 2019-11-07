@@ -9,7 +9,7 @@
 			<section class="link-group">
 				<span class="group-desc">Help & Support</span>
 				<a href="{{ url('/FAQs') }}">FAQ</a>
-				<a href="">Contact us</a>
+				<a href="{{ url('/contact-us') }}">Contact us</a>
 			</section>
 			<section class="link-group">
 				<span class="group-desc">Legal</span>

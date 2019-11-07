@@ -1,22 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
+@section('title')
+<title>WikiPoli | Careers</title>
+@endsection
+@section('style')
+<style>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0-11/css/all.min.css">
-    <link rel="stylesheet" href="{{ asset('css/styles/footer.css') }}"/>
-    <link rel="stylesheet" href="{{ asset('css/styles/careers.css') }}"/>
-    <link rel="icon" type="img/png" href="images/favicon.png">
-    <title>WikiPoli | Careers </title>
-    <style>
-
-footer {
+/* footer {
     background: rgba(33, 60, 220, 0.1);
-}
+} */
 
 
 
@@ -181,19 +171,17 @@ hr{
 .no-display{
     display: none;
 }
-#footer{
+/* #footer{
     background: #6D9BF1 !important;
-}
+} */
 .social-links h3 {
 font-size: 1rem;
 line-height: 1.5;
 }
-    </style>
-</head>
-
-<body>
-    <!-- Navigation bar -->
-    @include('layouts.header')
+</style>
+@endsection
+@extends('layouts.guest')
+@section('content')
 
     <div class="join-team w-100">
         <h2>Join Our Team</h2>
@@ -304,8 +292,7 @@ line-height: 1.5;
 
         </div>
     </main>
+@section('footer')
     @include('layouts.footer')
-
-</body>
-
-</html>
+@endsection
+@endsection

@@ -1,132 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="icon" type="img/png" href="images/favicon.png">
-    <title>Privacy Policy Page</title>
-    <style>
-            *  {
-                box-sizing: border-box;
-                font-family: 'Lato', sans-serif;            
-            }        
-            body  {
-                width: 100%;
-                background: #E5E5E5;           
-            }             
-            img  {
-                height: 9em;
-                width: 11em; 
-                margin-left: 5em;                    
-            }
-            .head {
-                background-color: #FFFFFF;
-                border-bottom: .1em solid #6D9BF1;
-            }
-               
-            .posts:hover  {
-                background-color:  white;
-                color: black;
-            }
-            .posts:active  {
-                top: 2px;
-            }
-            .posts a {
-                background-color: #6D9BF1;
-                margin-bottom: 4em;
-                margin-top: -.8em;
-                padding: .7em 2em .7em 2em;
-                color: #FFFFFF;  
-                margin-left: 41em;  
-                text-decoration: #6D9BF1;                                              
-            }
-            .policy {
-                 color:rgb(49, 46, 46);
-                 background-color: #E5E5E5;
-                
-             }
-             .policy li{
-                 color:#6D9BF1;
-                 margin-left: -2.5em;
-            }
-            .policy h5{
-                 color:#6D9BF1;
-            }
-             h2  {
-                 color: #6D9BF1 ;
-                 font-weight: 700;
-                 padding-left: 2em;            
-             }   
-             h4, h5, h6  {
-                 color: #6D9BF1;
-             } 
-             .session  {
-                 line-height: .8;
-             } 
-             .social-links img{
-                  width: 1em;
-                  height: 1em;                  
-             }        
-            footer  {
-                 display: flex;
-                 flex-direction: row;
-                 justify-content: space-around;
-                 background-color: #6D9BF1;
-                 color: #FFFFFF; 
+@section('title')
+<title>WikiPoli | About Us</title>
+@endsection
 
-            }   
-             footer ul  {
-                 list-style: none;
-             }
-             footer a, h5 {
-                 color: #FFFFFF;
-             }
-            #footer{
-                 background: #6D9BF1 !important;
-             }
-             .quick-links  {
-                 padding-right: 8em;
-
-             }
-                 
-         @media only screen and (max-width: 768px) {
-      body {
-        margin-left: -.1em;     
-        }
-      img  {
-          width: 7em;
-          height: 7em;
-          margin-left: .5em;
-      }
-      
-      h2  {
-          margin-top: .5em;
-      }
-      p  {
-          font-size: 1.2rem;
-      }
-      li  {
-          font-size: 1rem;
-      }
-      .posts a  {
-         margin-left: 1em;     
-     }     
-    .quick-links {
-        margin-left: 2em;
-        margin-right: -4em;
-    }
-     }
-      </style>
-</head>
-<body>
-        <main class="container-fluid"> 
-                <div class="row  d-sm-flex justify-content-around head">
-                @include('layouts.header')
-                </div>
-        
+@extends('layouts.guest')
+@section('content')
+        <main class="container-fluid">       
 
     <section class="policy">
         <div class="row d-sm-flex center border-top justify-content-center" >
@@ -238,13 +116,13 @@
     <br>
     
 </section> 
-@include('layouts.footer')
     
 </main>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-    
-</body>
-</html>
+@section('footer')
+@include('layouts.footer')
+@endsection
+@endsection

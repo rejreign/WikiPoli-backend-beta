@@ -1,29 +1,238 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0-11/css/all.min.css">
-  <link rel="stylesheet" href="{{ asset('css/styles/contact.css') }}"/>
-  <link rel="icon" type="img/png" href="images/favicon.png">
-  <title>WikiPoli | Contact Us</title>
-  <style>
-    #footer{
-             background: #6D9BF1 !important;
-  }
+@section('title')
+<title>WikiPoli | Contact Us</title>
+@endsection
+@section('style')
+<style>
   .social-links h3 {
   font-size: 1rem;
   line-height: 1.5;
 }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+}
+
+.logo img {
+  width: 120px;
+}
+
+.navbar p {
+  font-size: 2rem;
+  color: #6D9BF1;
+}
+
+.menu a {
+  font-size: 1.5rem;
+  color: #6D9BF1;
+}
+
+.menu li {
+  padding-left: 2.5rem;
+}
+
+.fa-bars {
+  color: #000000;
+}
+
+.posts-nav-link {
+   background-color: #6D9BF1 !important;
+  
+  color: #ffffff !important;
+  padding: .6rem 1.7rem;
+}
+
+.posts-nav-link:hover {
+   text-decoration: none;
+    background-color: rgb(69, 115, 202) !important;
+}
+
+.button-signup {
+  background-color: #6D9BF1;
+  border: none;
+  box-shadow: none;
+  color: #ffffff;
+  padding: 6px;
+  font-size: 1.5rem;
+  width: 150px;
+  margin-left: 2.5rem;
+}
+
+.button-signup:hover {
+   background: rgb(69, 115, 202);
+}
+
+.user-name-link {
+  color: black !important;
+}
+
+.button-search {
+  background-color: #6D9BF1;
+  border: none;
+  box-shadow: none;
+  color: #ffffff;
+  font-size: 2rem;
+  padding: 1px;
+  width: 150px;
+}
+
+.form-content {
+  width: 80%;
+  margin-top: 15%;
+}
+
+.input-group {
+  width: 80%;
+  margin-left: 23%;
+}
+
+h1 {
+  color: #6D9BF1;
+  margin-bottom: 50px;
+}
+
+.search-content {
+  font-size: 1.2rem;
+  margin-left: 23%;
+  color: #676871;
+  padding-top: 20px;
+  font-weight: bold;
+}
+
+.form-control {
+  border: 1px solid rgb(148, 148, 148);
+  border-radius: 0;
+}
+
+.send-email {
+  background: #6D9BF1;
+  color: white;
+  border-radius: 0;
+}
+
+.send-email:hover {
+   background: rgb(69, 115, 202);
+}
+
+.send-email:hover {
+  color: white;
+}
+
+.search-content a {
+ font-weight: bold;
+ color: #6D9BF1;
+}
+
+
+#footer {
+  /* background-color: #6D9BF1; */
+  margin-top: 200px;
+  padding-top: 10px;
+  height: 300px;
+  width: 100%;
+}
+
+.links {
+  padding-top: 20px;
+}
+
+.quick-links li {
+  list-style-type: none;
+  padding-top: 5px;
+}
+
+.quick-links li:first-child {
+  color: #ffffff;
+  padding-bottom: 10px;
+  font-weight: bold;
+}
+
+.main-body .fas,
+.main-body .fab {
+  display: inline-block;
+  margin-right: 2rem;
+}
+
+.icons-row {
+  padding: 0 3rem;
+}
+
+.icons-row a {
+  color: #333;
+}
+
+.icons-row a:hover {
+  color: #555;
+}
+
+.secondrow-content {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #333;
+}
+
+.secondrow-content > * {
+  margin-bottom: 1rem;
+}
+
+.quick-links li a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.social-links a span {
+  color: #ffffff;
+  letter-spacing: 20px;
+}
+
+.copyright p {
+  padding-top: 10px;
+  color: #ffffff;
+  font-size: 12px; 
+}
+
+/* Responsive styling */
+@media screen and (max-width: 768px) {
+    h1 {
+      font-size: 30px;
+    }
+    #footer {
+      margin-top: 150px;
+      padding-top: 10px;
+      height: 450px;
+      width: 100%;
+   }
+    .social-links {
+      margin-left: 40px;
+  }
+
+  .fa-2x {
+    font-size: 1.3rem !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+    .input-group {
+      width: 100%;
+      margin-left: 12%;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .input-group {
+    width: 120%;
+    margin-left: 4%;
+  }
+}
   </style>
-</head>
-<body>
-  <div id="wrapper">
-  @include('layouts.header')
+@endsection
+@extends('layouts.guest')
+@section('content')
 
     <div class="container mx-auto">
       <h1 class="text-center mt-3 mb-5 pb-3">Get in Touch</h1>
@@ -57,46 +266,6 @@
         </div>
       </div>
     </div>
-
-    <footer>
-      <div id="footer">
-        <div class="container">
-          <div class="row links">
-            <div class="col-md-4 col-sm-12  text-center">
-              <ul class="quick-links">
-                <li>Legal</li>
-                <li><a href="Terms-of-use.html">Terms of Use</a></li>
-                <li><a href="privacypolicy.html">Privacy Policy</a></li>
-              </ul>
-            </div>
-            <div class="col-md-4 col-sm-12  text-center">
-              <ul class="quick-links">
-                <li>Company</li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="careers.html">Careers</a></li>
-                <li><a href="FAQ.html">FAQs</a></li>
-                <li><a href="donation_page.html">Donations</a></li>
-              </ul>
-            </div>
-    
-            <div class="col-md-4 col-sm-12  text-center">
-              <div class="text-center text-white social-links">
-                <h3>Connect With Us</h3>
-                <a href="facebook.com"><span class="fab fa-2x fa-facebook"></span></a>
-                <a href="twitter.com"><span class="fab fa-2x fa-twitter"></span></a>
-                <a href="instagram.com"><span class="fab fa-2x fa-instagram"></span></a>
-                <p>contact@wikipoli.gq</p>
-              </div>
-            </div>
-            <div class="col-lg-12 copyright text-center">
-              <p>&copy; 2019 Wikipoli - All Rights Reserved</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
-    
-  </div>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>
@@ -106,5 +275,8 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
-</body>
-</html>
+
+@section('footer')
+@include('layouts.footer')
+@endsection
+@endsection
