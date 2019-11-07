@@ -48,7 +48,7 @@ class User extends Authenticatable {
         return $this->belongsTo(UserStatus::class, 'status_id');
     }
 
-      public function userProfile() {
+    public function userProfile() {
         return $this->hasOne(UserProfile::class, 'user_id');
     }
 }

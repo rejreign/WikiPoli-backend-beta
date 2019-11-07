@@ -1,13 +1,42 @@
 @section('title')
-<title>WikiPoli | Welcome</title>
+<title>WikiPoli | Careers</title>
 @endsection
 @section('style')
 <style>
 
-  
-    .form-control {
-        width: 35em;
-    }
+/* footer {
+    background: rgba(33, 60, 220, 0.1);
+} */
+
+
+
+.footer-list li  a {
+    text-decoration: none;
+    color: black;
+    text-align: center;
+}
+
+.footer-list li{
+   margin: 15px;
+    
+}
+
+.footer-list {
+    list-style: none;
+    text-align: center;
+    font-weight: bold;
+    display: flex;
+    height: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+    position: absolute;
+    right: 5%;
+    
+}
+
+.footer_brand img{
+    height: 15vh;
+}
 
     .search {
         margin-top: 0.5em;
@@ -42,14 +71,48 @@
         text-decoration: none;
     }
 
-    .lead {
-        font-size: medium;
-    }
-
-    .list {
-        list-style-type: none;
-        line-height: 2em;
-    }
+    font-family: 'Lato', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+}
+.jobs{
+    margin: 50px 0;
+}
+.jobs h2{
+    font-family: 'Lato', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 50px;
+}
+.jobs p{
+    margin-top: 20px;
+    margin-bottom: 50px;
+    font-family: 'Lato', sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 30px;
+}
+.apply-here{
+    margin-top: 100px;
+}
+hr{
+    width: 80%;
+}
+.no-display{
+    display: none;
+}
+/* #footer{
+    background: #6D9BF1 !important;
+} */
+.social-links h3 {
+font-size: 1rem;
+line-height: 1.5;
+}
+</style>
+@endsection
+@extends('layouts.guest')
+@section('content')
 
     .list a {
         text-decoration: none;
@@ -95,9 +158,9 @@
 @extends('layouts.guest')
 @section('content')
 
-
-
+        </div>
+    </main>
 @section('footer')
-@include('layouts.footer')
+    @include('layouts.footer')
 @endsection
 @endsection

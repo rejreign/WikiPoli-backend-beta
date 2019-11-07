@@ -1,13 +1,180 @@
 @section('title')
-<title>WikiPoli | Welcome</title>
+<title>WikiPoli | Frequently Asked Questions</title>
 @endsection
 @section('style')
-<style>
+    <style>
+        #footer{
+            /* background: #6D9BF1 !important; */
+            margin-top:  2rem;
+        }
 
-  
-    .form-control {
-        width: 35em;
-    }
+        h5 .btn {
+          font-weight: bold;
+        }
+        .navbar {
+          padding:  0rem !important;
+        }
+        .social-links h3 {
+        font-size: 1rem;
+        line-height: 1.5;
+        }
+        
+        p{
+            font-size:20px ;
+            text-transform:uppercase;
+            color:black;
+            border-bottom:4px;
+            font-family:monospace;
+        }
+        .sect {
+          margin-top: 2rem;
+        }
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+}
+
+.logo img {
+    width: 120px;
+}
+
+.navbar p {
+    font-size: 2rem;
+    color:  #6D9BF1;
+}
+
+.menu a {
+    font-size: 1.5rem;
+    color:  #6D9BF1;
+}
+
+.menu li {
+    padding-left: 2.5rem;
+}
+
+.fa-bars {
+    color: #000000;
+}
+
+.button-signup {
+    background-color:  #6D9BF1;
+    border: none;
+    box-shadow: none;
+    color: #ffffff;
+    padding: 6px;
+    font-size: 1.5rem;
+    text-align: center;
+    width: 150px;
+    margin-left: 2.5rem;
+}
+
+.button-signup:hover {
+    color: white;
+    text-decoration: none;
+    background: rgb(24, 24, 133);
+}
+
+.button-search {
+    background-color:  #6D9BF1;
+    border: none;
+    box-shadow: none;
+    color: #ffffff;
+    font-size: 2rem;
+    padding: 1px;
+    width: 150px;
+}
+
+.button-search:hover {
+    background: rgb(24, 24, 133);
+}
+
+.form-content {
+    width: 80%;
+    margin-top: 15%;
+}
+
+.input-group {
+    width: 80%;
+    margin-left: 23%;
+}
+
+.form-control {
+    height: 50px;
+    padding: 15px;
+    border-radius: 0;
+    border: 1px solid  #6D9BF1;
+}
+
+h1 {
+    margin-left: 23%;
+    color:  #6D9BF1;
+    margin-bottom: 50px;
+}
+
+.search-content {
+    font-size: 1.2rem;
+    margin-left: 23%;
+    color: #676871;
+    padding-top: 20px;
+    font-weight: bold;
+}
+
+.search-content a {
+    font-weight: bold;
+    color:  #6D9BF1;
+}
+
+
+#footer {
+    /* background-color:  #6D9BF1; */
+    margin-top: 32%;  /* YOU CAN PULL THIS OUT WHEN YOU IMPLEMENT YOUR PAGE.*/
+    padding-top: 10px;
+    /* height: 300px; */
+    width: 100%;
+}
+
+.links {
+    padding-top: 5px;
+}
+
+.social-links h3,
+.quick-links li {
+    list-style-type: none;
+    padding-top: 5px;
+}
+
+.social-links h3,
+.quick-links li:first-child {
+    color: #ffffff;
+    padding-bottom: 10px;
+    font-weight: bold;
+}
+
+.quick-links li a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.social-links a span {
+    color: #ffffff;
+    letter-spacing: 20px;
+}
+
+.social-links p,
+.copyright p {
+    padding-top: 10px;
+    color: #ffffff;
+    font-size: 12px;
+}
+
+.line{
+    display: none;
+}
 
     .search {
         margin-top: 0.5em;
@@ -50,6 +217,63 @@
         list-style-type: none;
         line-height: 2em;
     }
+}
+
+
+    </style>
+@endsection
+@extends('layouts.guest')
+@section('content')
+                                        
+    <div class="container sect"> 
+      <h2>Frequently Asked Questions</h2>
+      <br>
+      <br>
+      <p>Login and Registration Issues</p>
+      <div class="accordion" id="Loginaccordion">
+        <div class="card z-depth-0 bordered">
+          <div class="card-header" id="heading1">
+            <h5 class="mb-0">
+              <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse1"
+                aria-expanded="true" aria-controls="collapse1">
+                Why do I need to Sign Up/Log In?
+              </button>
+            </h5>
+          </div>
+          <div id="collapse1" class="collapse show" aria-labelledby="heading1"
+            data-parent="#Loginaccordion">
+            <div class="card-body">
+                You may not have to, however, in order to post messages
+                you must sign up/log in. Also, registration gives you access
+                to additional features not available to guest users such as 
+                private messaging the administrator, subscription to latest 
+                news on this site, etc. It only takes a few moments to 
+                register so it is recommended you do so.
+            </div>
+          </div>
+        </div>
+        
+        <!-- SECOND  -->
+
+        <div class="card z-depth-0 bordered">
+          <div class="card-header" id="heading2">
+            <h5 class="mb-0">
+              <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse2"
+                aria-expanded="true" aria-controls="collapse2">
+                What is WikiPoli?
+              </button>
+            </h5>
+          </div>
+          <div id="collapse2" class="collapse" aria-labelledby="heading2"
+            data-parent="#Loginaccordion">
+            <div class="card-body">
+                It is a special type of website designed to make contribution
+                on everything politics easy. Many people are constantly 
+                improving WikiPOLIS, making thousands of edits every
+                minute.
+            </div>
+          </div>
+        </div>
 
     .list a {
         text-decoration: none;
@@ -96,6 +320,12 @@
 @section('content')
 
 
+
+  </div>
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 @section('footer')
 @include('layouts.footer')

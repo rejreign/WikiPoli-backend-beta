@@ -1,5 +1,5 @@
 @section('title')
-<title>WikiPoli | Welcome</title>
+<title>WikiPoli | About Us</title>
 @endsection
 @section('style')
 <style>

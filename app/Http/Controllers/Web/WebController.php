@@ -7,13 +7,13 @@ use App\Models\Post;
 class WebController extends Controller
 {
     public function index() {
-      $data['posts'] = Post::with('user')->whereStatus(1)->orderBy('id', 'DESC')->paginate(8); 
+      $data['posts'] = Post::with('user')->whereStatus(1)->orderBy('created_at', 'DESC')->paginate(8); 
       return view('web.post.index', $data);
       
     }
     
      public function home() {
-      $data['posts'] = Post::with('user')->whereStatus(1)->orderBy('id', 'DESC')->take(8)->get(); 
+      $data['posts'] = Post::with('user')->whereStatus(1)->orderBy('created_at', 'DESC')->take(8)->get(); 
       return view('web.index', $data);
       
     }

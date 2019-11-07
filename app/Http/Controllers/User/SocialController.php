@@ -8,7 +8,7 @@ use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Carbon;
-
+use Illuminate\Support\Facades\Redirect;
 class SocialController extends Controller {
 
     public function socialLogin($social) {
@@ -21,7 +21,7 @@ class SocialController extends Controller {
         $user = User::where(['email' => $userSocial->getEmail()])->first();
         if ($user) {
             Auth::login($user);
-            return view('home');
+            return Redirect::to('https://wikipoli.gq/');
         } else {
             $input = ([
                 'email' => $userSocial->email,
@@ -36,7 +36,7 @@ class SocialController extends Controller {
             Auth::login($new_user);
 
 
-            return view('home');
+           return Redirect::to('https://wikipoli.gq/');
         }
     }
 

@@ -1,25 +1,11 @@
 @section('title')
 <title>WikiPoli | Search</title>
 @endsection
-@extends('layouts.postList')
+@extends('layouts.guest')
 @section('content')
 <div class="clearfix"></div>
 <br/>
-	<?php
-				function textShorten($text, $limit = 400){
-					$text = $text. " ";
-					$text = substr($text, 0, $limit);
-					$text = substr($text, 0, strrpos($text, ' '));
-					$text = $text."...";
-					return $text;
-				}
 
-				// function to rewrite the title for valid SEO
-				function rewriteText($string) {
-					$text = preg_replace('/[^-a-z0-9-]+/', '-', strtolower($string));
-					return $text;
-				}
-			?>
 <div class="profile-tabs">
     <div class="container">
         <div class="row">
@@ -55,26 +41,35 @@
 
                     </div>
                     <div class="tab-pane fade show " id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-                        <div class="container main">
-                            <div class="row">
-                                @foreach($results as $result)
-                                @foreach($result->politicianpost as $read)
-                                @foreach($read->post as $p)
+                        <div class="row disp">
+                            @foreach($results as $result)
+                            @foreach($result->politicianpost as $read)
+                            @foreach($read->post as $p)
 
-                                <div class="col-sm col-md-5" id="post-1">
-                                    <div class="post">
-                                        <h4>{{$p->title}}</h4>
-                                        <p>
-                                      {!! textShorten($p->body) !!}
-                                        </p>
-                                        	<a href="/posts/{{ $p->id }}/{{ rewriteText($p->title) }}" class="btn btn-info">Read More</a>
+                            <div class="col-sm-12 col-md-3 col-lg-3 cardi">
+                                <a href="{{url('posts/'.$p->slug)}}">
+                                    <img class="img-fluid" src="{{asset($p->file)}}">
+                                    <div>
+                                        <h5 class="h5 mb-2 mt-2" style="color:#1257AE">{{$p->cutTitle()}}</h5>
+                                        <p class="text-dark">{{$p->cutBody()}} </p>
                                     </div>
+                                </a>
+                                @Auth
+                                <div>
+                                    <a href="#"><i class="fa fa-thumbs-up pr-3" aria-hidden="true" style="color:#1257AE"></i></a>
+                                    <a href="#"><i class="fa fa-thumbs-down pr-3" aria-hidden="true" style="color:#1257AE"></i></a>
+                                    <a href="#"><i class="fa fa-reply" aria-hidden="true" style="color:#1257AE"></i></a>
+                                    <a href="#" onclick="window.open('http://www.facebook.com/sharer.php?u={{url('posts/'.$p->slug)}}& amp; t={{$p->title}}', 'facebookShare', 'width=626,height=436');
+                    return false;" title="Share on Facebook"><i class="fab fa-facebook  float-right" aria-hidden="true" style="color:#1257AE"></i></a>
+                                    <a href="#" onclick="window.open('http://twitter.com/share?text={{$p->title}} - & amp; url={{url('posts/'.$p->slug)}}', 'twitterShare', 'width=626,height=436');
+                    return false;" title="Tweet This Post"><i class="fab fa-twitter pr-3 float-right"></i></a>
                                 </div>
-
-                                @endforeach
-                                @endforeach
-                                @endforeach
+                                @endAuth
                             </div>
+
+                            @endforeach
+                            @endforeach
+                            @endforeach
                         </div>
 
                     </div>
@@ -86,5 +81,7 @@
 </div>
 
 
-
+@section('footer')
+@include('layouts.footer')
+@endsection
 @endsection

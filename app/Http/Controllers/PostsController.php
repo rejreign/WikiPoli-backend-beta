@@ -16,7 +16,7 @@ class PostsController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        $posts = Post::orderBy('id', 'DESC')->whereStatus(1)->paginate(10);
+        $posts = Post::orderBy('created_at', 'DESC')->whereStatus(1)->paginate(10);
         return view('web.post.index')->with('posts', $posts);
     }
 
