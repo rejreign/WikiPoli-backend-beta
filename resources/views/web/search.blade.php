@@ -1,25 +1,11 @@
 @section('title')
 <title>WikiPoli | Search</title>
 @endsection
-@extends('layouts.postList')
+@extends('layouts.guest')
 @section('content')
 <div class="clearfix"></div>
 <br/>
-	<?php
-				function textShorten($text, $limit = 400){
-					$text = $text. " ";
-					$text = substr($text, 0, $limit);
-					$text = substr($text, 0, strrpos($text, ' '));
-					$text = $text."...";
-					return $text;
-				}
-
-				// function to rewrite the title for valid SEO
-				function rewriteText($string) {
-					$text = preg_replace('/[^-a-z0-9-]+/', '-', strtolower($string));
-					return $text;
-				}
-			?>
+	
 <div class="profile-tabs">
     <div class="container">
         <div class="row">
@@ -67,7 +53,7 @@
                                         <p>
                                       {!! textShorten($p->body) !!}
                                         </p>
-                                        	<a href="/posts/{{ $p->id }}/{{ rewriteText($p->title) }}" class="btn btn-info">Read More</a>
+                                        	<a href="/posts/{{ $p->id }}/{{($p->title) }}" class="btn btn-info">Read More</a>
                                     </div>
                                 </div>
 
@@ -86,5 +72,7 @@
 </div>
 
 
-
+@section('footer')
+@include('layouts.footer')
+@endsection
 @endsection
