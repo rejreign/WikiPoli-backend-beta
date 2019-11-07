@@ -22,7 +22,7 @@ class UserController extends Controller {
         return view('users.profile.index');
     }
 
-    public function settings() {
+    public function settings(Request $request) {
         //$posts = DB::table('posts')->where('author_id', Auth::user()->id)->get();
         return view('users.profile.settings');
     }
@@ -51,7 +51,7 @@ class UserController extends Controller {
     }
 
     public function updateAvatar(Request $request) {
-        //handling the user upload of avatar
+        //handling the user upload of avatar 
         if ($request->hasFile('avatar')) {
             $avatar = $request->file('avatar');
             $filename = time() . '.' . $avatar->getClientOriginalExtension();

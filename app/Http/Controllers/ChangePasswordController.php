@@ -44,6 +44,9 @@ class ChangePasswordController extends Controller
    
         User::find(auth()->user()->id)->update(['password'=> Hash::make($request->new_password)]);
    
-        dd('Password change successfully.');
+        //dd('Password change successfully.');
+        session()->flash('message.alert', 'success');
+        session()->flash('message.content', "Password changed sucessfully");
+        return back();
     }
 }

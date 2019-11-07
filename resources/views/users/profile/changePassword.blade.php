@@ -361,9 +361,16 @@ border-radius: 50%;
 <div id="box">
         
             <h1>Change Password <span>choose a good one!</span></h1>
+            @if(session()->has('message.alert'))
+            <div class="text-center">
+                <button class="alert alert-{{ session('message.alert') }}"> 
+                    {!! session('message.content') !!}
+                </button>
+            </div>
+            @endif
             <form action="{{ route('change.password') }}" method="post" autocomplete="off" id="myform-search">
             @csrf 
-                
+                 
                 @foreach ($errors->all() as $error)
                     <p class="text-danger">{{ $error }}</p>
                 @endforeach 
