@@ -34,7 +34,7 @@ class PostController extends Controller {
             'file' => 'required|max:1024|mimes:png,jpg,jpeg'
         ];
 
-
+ 
         $error = static::getErrorMessageAjax($input, $rules);
         if ($error) {
             return $error;

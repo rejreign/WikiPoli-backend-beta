@@ -8,6 +8,7 @@ use App\Http\Controllers\Traits\HasError;
 use App\UserProfile;
 use App\User;
 use Illuminate\Support\Facades\Auth;
+use Image;
 
 class UserController extends Controller {
 
@@ -16,10 +17,16 @@ class UserController extends Controller {
     public function __construct() {
         $this->middleware('auth');
     }
-
+ 
     public function profile() {
         return view('users.profile.index');
     }
+
+    public function settings() {
+        //$posts = DB::table('posts')->where('author_id', Auth::user()->id)->get();
+        return view('users.profile.settings');
+    }
+
 
     public function edit(Request $request) {
 
@@ -54,8 +61,8 @@ class UserController extends Controller {
             $user->avatar = $filename;
             $user->save();
         }
-        $posts = DB::table('posts')->where('author_id', $user->id)->get();
-        return(view('web.post.user_profile', ['user' => $user, 'posts' => $posts]));
+        //$posts = DB::table('posts')->where('author_id', $user->id)->get();
+        return(view('users.profile.settings', ['user' => $user]));
     }
 
 }
