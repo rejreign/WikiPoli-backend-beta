@@ -7,7 +7,6 @@
             /* background: #6D9BF1 !important; */
             margin-top:  2rem;
         }
-
         h5 .btn {
           font-weight: bold;
         }
@@ -34,33 +33,26 @@
     padding: 0;
     box-sizing: border-box;
 }
-
 body {
     font-family: 'Lato', sans-serif;
 }
-
 .logo img {
     width: 120px;
 }
-
 .navbar p {
     font-size: 2rem;
     color:  #6D9BF1;
 }
-
 .menu a {
     font-size: 1.5rem;
     color:  #6D9BF1;
 }
-
 .menu li {
     padding-left: 2.5rem;
 }
-
 .fa-bars {
     color: #000000;
 }
-
 .button-signup {
     background-color:  #6D9BF1;
     border: none;
@@ -72,13 +64,11 @@ body {
     width: 150px;
     margin-left: 2.5rem;
 }
-
 .button-signup:hover {
     color: white;
     text-decoration: none;
     background: rgb(24, 24, 133);
 }
-
 .button-search {
     background-color:  #6D9BF1;
     border: none;
@@ -88,34 +78,28 @@ body {
     padding: 1px;
     width: 150px;
 }
-
 .button-search:hover {
     background: rgb(24, 24, 133);
 }
-
 .form-content {
     width: 80%;
     margin-top: 15%;
 }
-
 .input-group {
     width: 80%;
     margin-left: 23%;
 }
-
 .form-control {
     height: 50px;
     padding: 15px;
     border-radius: 0;
     border: 1px solid  #6D9BF1;
 }
-
 h1 {
     margin-left: 23%;
     color:  #6D9BF1;
     margin-bottom: 50px;
 }
-
 .search-content {
     font-size: 1.2rem;
     margin-left: 23%;
@@ -123,13 +107,10 @@ h1 {
     padding-top: 20px;
     font-weight: bold;
 }
-
 .search-content a {
     font-weight: bold;
     color:  #6D9BF1;
 }
-
-
 #footer {
     /* background-color:  #6D9BF1; */
     margin-top: 32%;  /* YOU CAN PULL THIS OUT WHEN YOU IMPLEMENT YOUR PAGE.*/
@@ -137,89 +118,100 @@ h1 {
     /* height: 300px; */
     width: 100%;
 }
-
 .links {
     padding-top: 5px;
 }
-
 .social-links h3,
 .quick-links li {
     list-style-type: none;
     padding-top: 5px;
 }
-
 .social-links h3,
 .quick-links li:first-child {
     color: #ffffff;
     padding-bottom: 10px;
     font-weight: bold;
 }
-
 .quick-links li a {
     color: #ffffff;
     text-decoration: none;
 }
-
 .social-links a span {
     color: #ffffff;
     letter-spacing: 20px;
 }
-
 .social-links p,
 .copyright p {
     padding-top: 10px;
     color: #ffffff;
     font-size: 12px;
 }
-
 .line{
     display: none;
 }
-
-    .search {
-        margin-top: 0.5em;
-        width: 10em;
+/* Responsive styling */
+@media screen and (max-width: 768px) {
+    h1 {
+        font-size: 30px;
     }
-
-    .link {
-        text-decoration: none;
-    }
-
-    .row {
-        align-self: auto;
-        justify-content: center;
-    }
-
-    .cardi {
-        margin: 1em;
-        max-width: 100%;
-    }
-
-    .cardi a {
-        text-decoration: none;
-    }
-
-    .img-fluid {
-        height: 15rem;
+    #footer {
+        padding-top: 10px;
+        height: 450px;
         width: 100%;
-        object-fit: cover;
-    }
-
-    .posts a {
-        text-decoration: none;
-    }
-
-    .lead {
-        font-size: medium;
-    }
-
-    .list {
-        list-style-type: none;
-        line-height: 2em;
     }
 }
-
-
+@media screen and (max-width: 768px) {
+    .input-group {
+        width: 100%;
+        margin-left: 12%;
+    }
+    .form-control {
+        height: 50px;
+        padding: 20px;
+        border-radius: 0;
+        border: 1px solid  #6D9BF1;
+    }
+    .button-search {
+        background-color:  #6D9BF1;
+        border: none;
+        box-shadow: none;
+        color: #ffffff;
+        font-size: 1.2rem;
+        padding: 1px;
+        width: 80px;
+    }
+    .search-content {
+        font-size: 1rem;
+        width: 100%;
+        margin-left: 13%;
+        color: #676871;
+        padding-top: 20px;
+        font-weight: bold;
+    }
+}
+@media screen and (max-width: 375px) {
+    .input-group {
+        width: 120%;
+        margin-left: 4%;
+    }
+    .search-content {
+        font-size: 1rem;
+        width: 120%;
+        margin-left: 8%;
+        color: #676871;
+        padding-top: 20px;
+        font-weight: bold;
+    }
+    .line{
+        display: block;
+        margin: 0 auto;
+        padding: 0;
+        height: 0px;
+        border: 1px solid #ffffff;
+        width: 25%;
+        background: #000;
+    }
+}
     </style>
 @endsection
 @extends('layouts.guest')
@@ -275,51 +267,164 @@ h1 {
           </div>
         </div>
 
-    .list a {
-        text-decoration: none;
-        color: darkslategrey;
-    }
+        <!-- THIRD -->
 
-    .cont a {
-        text-decoration: none;
-    }
+        <div class="card z-depth-0 bordered">
+          <div class="card-header" id="heading3">
+            <h5 class="mb-0">
+              <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse3"
+                aria-expanded="true" aria-controls="collapse3">
+                I registered but cannot login!
+              </button>
+            </h5>
+          </div>
+          <div id="collapse3" class="collapse" aria-labelledby="heading3"
+            data-parent="#Loginaccordion">
+            <div class="card-body">
+                First, check your username and password. If they are 
+                correct, then one of two things may have happened. 
+                If you were sent an email, follow the instructions. 
+                If you did not receive an email, you may have
+                provided an incorrect email address or the 
+                email may have been picked up by a spam filer. 
+                If you are sure the email address you provided is 
+                correct, try contacting an administrator.
+          
+            </div>
+          </div>
+        </div>
 
-    .copy {
-        font-size: 12.5px;
-    }
+        <!-- FORTH -->
 
-    @media only screen and (max-width: 568px) {
-        .navimg {
-            margin-left: -5em;
-            height: 150px;
-            width: 190px;
-        }
-    }
+        <div class="card z-depth-0 bordered">
+          <div class="card-header" id="heading4">
+                <h5 class="mb-0">
+                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse4"
+                aria-expanded="true" aria-controls="collapse4">
+                I’ve lost my password!
+                </button>
+                </h5>
+          </div>
+          <div id="collapse4" class="collapse" aria-labelledby="heading4"
+            data-parent="#Loginaccordion">
+            <div class="card-body">
+              Don’t panic! While your password cannot be retrieved, 
+              it can easily be reset. Visit the login page and click 
+              <em>I forgot my password</em>. 
+              Follow the instructions and you should be able 
+              to log in again shortly.<br />
+              However, if you are not able to reset your 
+              password, contact a board administrator.
+            </div>
+          </div>
+        </div>
+    </div>
+    </div>
+    <br>
+    <br>
+    <!-- FOR POSTING ISSUES -->
+    <div class="container">
+      <p>Posting Issues</p>
+      <div class="accordion" id="post_accordion">
+          <div class="card z-depth-0 bordered">
+            <div class="card-header" id="heading5">
+              <h5 class="mb-0">
+                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse5"
+                  aria-expanded="true" aria-controls="collapse5">
+                  How do I create a new topic or post a reply?
+                </button>
+              </h5>
+            </div>
+            <div id="collapse5" class="collapse show" aria-labelledby="heading5"
+              data-parent="#post_accordion">
+              <div class="card-body">
+                  To post a new topic in a forum, click "New Topic". To post a reply 
+                    to a topic, click "Post Reply". You may need to register before you 
+                    can post a message. A list of your permissions in each forum is 
+                    available at the bottom of the forum and topic screens. 
+                    Example: You can post new topics.     
+        
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+    </div>
 
-    @media only screen and (min-width: 1024px) {
-        .disp {
-            display: grid;
-            grid-template-columns: auto auto auto auto;
-            overflow-x: hidden;
-            margin-right: 0.5em;
-        }
-    }
 
-    @media only screen and (max-width: 768px) {
-        .form-control {
-            width: 27em;
-        }
-    }
+            <br>
+            <br>
+      
 
-  
-    }
-</style>
+      <!-- FOR OTHERS  -->
+      <div class="container">
+      <p>Others</p>
+      <div class="accordion" id="others_accordion">
+        <div class="card z-depth-0 bordered">
+          <div class="card-header" id="heading11">
+            <h5 class="mb-0">
+              <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse11"
+                aria-expanded="true" aria-controls="collapse11">
+                Who do you think is the richest Nigerian politician alive?
+              </button>
+            </h5>
+          </div>
+          <div id="collapse11" class="collapse show" aria-labelledby="heading11"
+            data-parent="#others_accordion">
+            <div class="card-body">
+                I had an argument with a friend recently about some of the 
+                richest Nigerian politicians alive, so I am bringing the 
+                question here for you guys to give your opinions and 
+                help us settle it once and for all.
+      
+            </div>
+          </div>
+        </div>
+        
+        <!-- SECOND  -->
 
-@endsection
-@extends('layouts.guest')
-@section('content')
+        <div class="card z-depth-0 bordered">
+          <div class="card-header" id="heading22">
+            <h5 class="mb-0">
+              <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse22"
+                aria-expanded="true" aria-controls="collapse22">
+                Who is your best Nigerian governor so far in 2019?
+              </button>
+            </h5>
+          </div>
+          <div id="collapse22" class="collapse" aria-labelledby="heading22"
+            data-parent="#others_accordion">
+            <div class="card-body">
+                Which governor do you think has performed so well this 
+                year and deserved the best governor in Nigeria for the
+                year 2019?
+        
+            </div>
+          </div>
+        </div>
 
+        <!-- THIRD -->
 
+        <div class="card z-depth-0 bordered">
+          <div class="card-header" id="heading33">
+            <h5 class="mb-0">
+              <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse33"
+                aria-expanded="true" aria-controls="collapse33">
+                How much does a local government councillor earn in Nigeria?
+              </button>
+            </h5>
+          </div>
+          <div id="collapse33" class="collapse" aria-labelledby="heading33"
+            data-parent="#others_accordion">
+            <div class="card-body">
+                It seems like the local government Councillor is a very lucrative
+                 position to hold in Nigeria. I have seen people fighting and
+                  doing all sorts of things just to get the position. So, 
+                  I’m tempted to ask. Like how much.
+            </div>
+          </div>
+        </div>
+    </div>
 
   </div>
     
