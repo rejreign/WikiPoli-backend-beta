@@ -38,8 +38,8 @@ Route::get('/contact-us', function () {
     return view('pages.contact');
 });
 //social login and reigster routes
-Route::get('/login/{social}', 'User\SocialController@socialLogin')->where('social', 'twitter|facebook');
-Route::get('/login/{social}/callback', 'User\SocialController@handleProviderCallback')->where('social', 'twitter|facebook');
+Route::get('/login/{social}', 'User\SocialController@socialLogin')->where('social', 'twitter|facebook|google');
+Route::get('/login/{social}/callback', 'User\SocialController@handleProviderCallback')->where('social', 'twitter|facebook|google');
 
 Route::get('/posts', 'PostsController@index');
 Route::get('/posts/{slug}', 'PostsController@show');

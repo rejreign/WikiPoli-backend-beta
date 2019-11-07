@@ -33,7 +33,7 @@ return [
     ],
     'twitter' => [
         'client_id' => 'Kipb8tBSBuXNZXCDbqNU5RIcz',
-        'client_secret' => 'Oq7HKW88pI6mJU2iQvu1SWy1W3Ju25V7oELpFZrD0xxtIx28Hz ',
+        'client_secret' => 'Oq7HKW88pI6mJU2iQvu1SWy1W3Ju25V7oELpFZrD0xxtIx28Hz',
         'redirect' => 'https://wikipoli.gq/login/twitter/callback',
     ],
     'google' => [
