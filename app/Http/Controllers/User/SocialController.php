@@ -21,7 +21,7 @@ class SocialController extends Controller {
         $user = User::where(['email' => $userSocial->getEmail()])->first();
         if ($user) {
             Auth::login($user);
-            return view('home');
+            return view('web.index');
         } else {
             $input = ([
                 'email' => $userSocial->email,
@@ -36,7 +36,7 @@ class SocialController extends Controller {
             Auth::login($new_user);
 
 
-            return view('home');
+            return view('web.index');
         }
     }
 
