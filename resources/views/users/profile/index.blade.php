@@ -342,7 +342,7 @@
                     </div>
         -->
         <div class="d-flex justify-content-end">
-            <input type="submit" class="btn btn-primary font-weight-bold px-5" value="Edit">
+            <input type="submit" class="btn btn-primary font-weight-bold px-5" value="Save">
         </div>
     </form>
 </div>

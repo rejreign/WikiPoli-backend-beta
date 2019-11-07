@@ -3,19 +3,18 @@
 		<nav id="nav-flex">
 			<section class="link-group">
 				<span class="group-desc">Company</span>
-				<a href="">About Us</a>
-				<a href="">Our Team</a>
-				<a href="">Election 2023</a>
+				<a href="{{ url('/About') }}">About Us</a>
+				<a href="{{ url('/Careers') }}">Careers</a>
 			</section>
 			<section class="link-group">
 				<span class="group-desc">Help & Support</span>
-				<a href="">FAQ</a>
+				<a href="{{ url('/FAQs') }}">FAQ</a>
 				<a href="">Contact us</a>
 			</section>
 			<section class="link-group">
 				<span class="group-desc">Legal</span>
-				<a href="">Terms and Conditions</a>
-				<a href="">Privacy Policy</a>
+				<a href="{{ url('/Terms') }}">Terms and Conditions</a>
+				<a href="{{ url('/PrivacyPolicy') }}">Privacy Policy</a>
 			</section>
 			<section class="link-group">
 				<span class="group-desc">Follow Us</span>
