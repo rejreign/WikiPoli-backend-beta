@@ -17,23 +17,27 @@ Route::group(['namespace' => 'Web'], function () {
 });
 
 Route::get('/Terms', function () {
-    return view('Terms-of-use');
+    return view('pages.Terms-of-use');
 });
 Route::get('/PrivacyPolicy', function () {
-    return view('privacypolicy');
+    return view('pages.privacypolicy');
 });
 Route::get('/About', function () {
-    return view('about');
+    return view('pages.about');
 });
 Route::get('/Careers', function () {
-    return view('careers');
+    return view('pages.careers');
 });
 Route::get('/FAQs', function () {
-    return view('FAQ');
+    return view('pages.FAQ');
 });
 Route::get('/Donation', function () {
-    return view('donate_and_support_page');
+    return view('pages.donate');
 });
+
+//social login and reigster routes
+Route::get('/login/{social}', 'User\SocialController@socialLogin')->where('social', 'twitter|facebook');
+Route::get('/login/{social}/callback', 'User\SocialController@handleProviderCallback')->where('social', 'twitter|facebook');
 
 Route::get('/posts', 'PostsController@index');
 Route::get('/posts/{slug}', 'PostsController@show');
@@ -42,9 +46,14 @@ Route::post('/post-comments', 'CommentsController@store');
 Route::get('/search', 'PostsController@search')->name('search');
 
 //user
-Route::get('/settings', 'User\UserController@setting');
+Route::get('/settings', 'User\UserController@settings');
+Route::post('/settings', 'User\UserController@updateAvatar');
 Route::get('/profile', 'User\UserController@profile');
 Route::post('/edit-profile', 'User\UserController@edit')->name('edit-profile');
+
+//Change Password
+Route::get('/changePassword', 'ChangePasswordController@index');
+Route::post('changePassword', 'ChangePasswordController@store')->name('change.password');
 
 // Auth::routes();
 // Route::get('/home', 'HomeController@index')->name('home');

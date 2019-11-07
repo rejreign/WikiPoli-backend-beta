@@ -294,7 +294,7 @@
                     <div class="inner cover">
 
                         <form id="login-form" class="login_form" action="{{url('login')}}" method="post">
-                               @csrf
+                            @csrf
                             <h2 class="form-signin-heading">Welcome Back!</h2>
                             <p class="text-center">
                                 New To WikiPoli? <a href="{{url('register')}}"> Sign up</a>
@@ -321,21 +321,21 @@
                             </div>
 
                             <button class="btn btn-md btn-primary btn-block" type="submit">Login</button>
-
-                            <div class="forg">
-                                <p class="forg"><a href="{{ route('password.request') }}">Forgot Password?</a></p>
-                            </div>
-                            <button class="btn btn-lg btn-primary btn-block btn-facebook" type="submit"><i
-                                    class="fab fa-facebook-f"></i> Connect with Facebook</button>
-
-                            <button class="btn btn-lg btn-primary btn-block btn-twitter" type="submit"><i
-                                    class="fab fa-twitter"></i> Connect with Twitter</button>
-                            <div id="eresult"></div>
-
-                            <p class="text-center">
-                                By continuing you accept our <a href=""> Terms of Use</a>
-                            </p>
                         </form>
+                        <div class="forg">
+                            <p class="forg"><a href="{{ route('password.request') }}">Forgot Password?</a></p>
+                        </div>
+                        <a href="{{url("login/facebook")}}"> <button class="btn btn-lg btn-primary btn-block btn-facebook" ><i
+                                    class="fab fa-facebook-f"></i> Login with Facebook</button></a>
+
+                        <a href="{{url("login/twitter")}}">    <button class="btn btn-lg btn-primary btn-block btn-twitter" ><i
+                                    class="fab fa-twitter"></i> Login with Twitter</button></a>
+                        <div id="eresult"></div>
+
+                        <p class="text-center">
+                            By continuing you accept our <a href=""> Terms of Use</a>
+                        </p>
+
                     </div>
                 </div>
             </div>
