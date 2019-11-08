@@ -1,285 +1,352 @@
 @section('title')
-<title>WikiPoli | Terms Of Use</title>
+<title>WikiPoli | Welcome</title>
 @endsection
 @section('style')
-<style>
-        /* Style for Navbar Starts */
-.navbar-custom li a {
-    color: #000;
-}
+<style tye="text/css">
+            body,
+            html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Nunito', sans-serif;
+            box-sizing: border-box;
+            text-align: center;
+            }
 
-.custom-toggler .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0,0,0, 0.7)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
-}
-.custom-toggler.navbar-toggler {
-    border-color: #000;
-}
-/* Style for Navbar Ends */
-.display-4 {
-font-weight: bold;
-font-size: 40px;
-line-height: 55px;
-}
-h1 {
-font-family: "Nunito", sans-serif;
-font-style: normal;
-letter-spacing: 0.655606px;
-color: #ffffff;
-text-align: center;
-}
+            #header {
+            width: 100%;
+            padding: 0;
+            }
 
-h5 {
-font-family: "Nunito", sans-serif;
-}
-strong {
-font-size: 1.15rem;
-}
-p {
-font-family: "Nunito", sans-serif;
-font-size: .7em;
-}
-.paragraph {
-font-family: "Open Sans", sans-serif;
-font-size: 16px;
-line-height: 22px;
-color: black;
-}
-.navbar {
-padding: .9rem 1rem;
-}
-.navbar-nav {
-margin-left: 18rem;
-}
-.nav-item {
-margin: 0 15px;
-font-family: "Nunito", sans-serif;
-font-style: normal;
-font-weight: bold;
-}
-.nav-link {
-font-size: 16px;
-line-height: 22px;
-letter-spacing: 0.655606px;
-color: #2a2b2a !important;
-}
-#learn {
-color: white !important
-}
+            #header #navbar {
+            padding: 0;
+            }
 
-.secondheader {
-font-family: "Nunito", sans-serif;
-font-style: normal;
-font-weight: bold;
-font-size: 20px;
-line-height: 27px;
-letter-spacing: 0.655606px;
-color: #6D9BF1;
-}
-.first {
-background: #2a2b2a;
-}
-.second {
-border: 0.5px solid #d0d0d0;
-box-sizing: border-box;
-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-border-radius: 10px;
-padding: 20px 80px;
-}
+            #header .logo img {
+            width: 150px;
+            }
 
-.fourth {
-background: #3a0842;
-padding: 2.2em;
-}
-.fourth a {
-color: white;
-}
-.fifth {
-background: #2e0435;
-text-align: end;
-}
-.center {
-text-align: center;
-}
-.lead {
-font-family: "Nunito", sans-serif;
-font-style: normal;
-font-weight: bold;
-font-size: 25px;
-line-height: 34px;
-}
-.sub-lead {
-font-family: "Open Sans", sans-serif;
-font-style: normal;
-font-weight: bold;
-font-size: 16px;
-line-height: 22px;
-}
+            #header .navbar p {
+            font-size: 2rem;
+            color: #6D9BF1;
+            }
 
-.jumbotron {
-margin-bottom: 0;
-}
+            #header .menu .nav-link {
+            font-size: 1.1rem;
+            color: rgba(0, 0, 0, 0.7);
+            transition: 0.4s ease-out;
+            }
 
-li {
-list-style: none;
-color: white;
-}
-.expand {
-width: 91%
-}
-#footer{
-/* background: #6D9BF1 !important; */
-}
-.social-links h3 {
-font-size: 1rem;
-line-height: 1.5;
-}
-/* Style for footer */
-.logo img {
-width: 120px;
-}
+            #header .menu .nav-link:hover {
+            color: blue;
+            }
 
-#footer {
-/* background-color:  #6D9BF1;  */
-padding-top: 10px;
-/* height: 300px; */
-width: 100%;
-}
-.fa-bars {
-color: #000000;
-}
+            #header .menu #nav-accounts {
+            background-color: #1257AE;
+            align-self: center;
+            color: white;
+            padding: 0.4rem 1.5rem;
+            }
 
-.links {
-padding-top: 5px;
-}
+            #header .menu #nav-accounts:hover {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+            }
 
-.social-links h3,
-.quick-links li {
-list-style-type: none;
-padding-top: 5px;
-}
+            #header .menu li {
+            margin-left: 2.2rem;
+            }
 
-.social-links h3,
-.quick-links li:first-child {
-color: #ffffff;
-padding-bottom: 10px;
-font-weight: bold;
-}
+            #header .fa-bars {
+            color: #000000;
+            }
 
-.quick-links li a {
-color: #ffffff;
-text-decoration: none;
-}
+            @media (max-width: 860px) {
+            #header .fa-bars {
+            margin-bottom: 1rem;
+            }
 
-.social-links a span {
-color: #ffffff;
-letter-spacing: 20px;
-}
+            #header .menu {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            padding-bottom: 1rem;
+            }
 
-.social-links p,
-.copyright p {
-padding-top: 10px;
-color: #ffffff;
-font-size: 12px; 
-}
+            #header .menu .nav-link {
+            font-size: 1rem;
+            padding: 0.3rem 1rem;
+            }
 
-.line{
-display: none;
-}
+            #header .menu #nav-accounts {
+            padding: 0.3rem 1rem;
+            }
 
-@media only screen and (max-width: 480px) {
-.display-4 {
-font-size: 35px;
-}
-h3 {
-margin-bottom: 1rem;
-}
-.my-5 {
-margin-top: 1rem !important;
-}
-.second {
-padding: 20px 50px;
-}
-#buttons button {
-margin-right: 0;
-margin-left: 0;
-margin-bottom: 10px;
-}
-}
-::-webkit-scrollbar {
-width: 5px;
-}
-/* Track */
-::-webkit-scrollbar-track {
-box-shadow: inset 0 0 5px grey;
-border-radius: 10px;
-}
-/* Handle */
-::-webkit-scrollbar-thumb {
-background: #6D9BF1; 
-border-radius: 10px;
-}
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-background: #6D9BF1; 
-}
-/*Responsive styling */
-@media screen and (max-width: 768px) {
-h1 {
-font-size: 30px;
-}
-#footer {
-padding-top: 10px;
-height: 450px;
-width: 100%;
-}
-}
-    </style>
+            #header .menu li {
+            margin-left: 0.5rem;
+                }
+            }
+
+            a.btn.btn-primary{
+            float: left;
+            }
+            a.nav-link {
+            float: left;
+            color: black;
+            font-size: 18px;
+            margin-left: 20px;
+            }
+
+            button.accounts {
+            float: left;
+            font-size: 15px;
+            }
+
+            .jumbotron.jumbotron-fluid {
+                background-color: #1257AE;
+                color: #ffffff;
+                letter-spacing: 1px;
+            }
+
+            #footer
+            {
+            font-family: Nunito, segoe UI, sans-serif;
+            margin: 1rem auto;
+            width: 100%;
+            }
+            #footer #hr
+            {
+            width: 80%;
+            border: 0.5px solid rgba(0, 0, 0, 0.08);
+            }
+            #footer #nav-flex
+            {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            margin: 2rem auto;
+            }
+            #footer #nav-flex .link-group
+            {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            }
+            #footer .link-group .group-desc
+            {
+            color: #1257AE;
+            font-weight: bolder;
+            margin: 1rem 0;
+            }
+            #footer .link-group a
+            {
+            text-decoration: none;
+            color: rgba(0, 0, 0, 0.8);
+            margin: 0.15rem 0;
+            transition: 0.4s ease-out;
+            }
+            #footer .link-group a:hover
+            {
+            color: rgb(100, 100, 200);
+            }
+            #footer #socials
+            {
+            display: flex;
+            flex-direction: row;
+            margin: 0px auto;
+            }
+            #footer #socials .social-link
+            {
+            margin-right: 1rem;
+            border-radius: 100%;
+            height: 30px;
+            border: 2px solid white;
+            transition: 0.4s ease-out;
+            }
+            #footer #socials .social-link:hover
+            {
+            border: 2px solid skyblue;
+            }
+
+
+            @media (max-width: 860px)
+            {
+            #footer {
+            padding-bottom: 1rem;
+            }
+
+            #footer #nav-flex {
+                flex-direction: column;
+                margin: 1rem 2rem;
+            }
+            #footer .link-group .group-desc {
+            margin: 1.5rem 0 0.5rem;
+                }
+            }
+
+            @media (max-width: 860px)
+            {
+            #footer {
+             padding-bottom: 1rem;
+            }
+            
+            #footer #nav-flex {
+                flex-direction: column;
+                margin: 1rem 2rem;
+            }
+            
+            #footer .link-group .group-desc {
+                margin: 1.5rem 0 0.5rem;
+                }
+            }       
+
+            span{
+                color: #1257AE;
+                font-weight: 700;
+            }
+
+            h5.text-justify{
+                font-weight: bold;
+                color: #1257AE;
+                font-size: 17px;
+            }
+
+            p.text-justify{
+                font-weight: 600;
+                font-size: 15px;
+                line-height: 2em;
+            }
+
+            p a{
+                color: #1257ae;
+                text-decoration: none;
+            }
+
+            p a:hover{
+                color: #6D9BF1;
+                text-decoration: none;
+            }
+
+            h6 {
+            font-weight: bold;
+            font-size: 17px;
+            color: #1257AE;
+            }
+
+
+        </style>
 
 @endsection
 @extends('layouts.guest')
 @section('content')
-    <nav class="navbar navbar-expand-lg navbar-custom bg-custom">
-    </nav>
-    <div class="jumbotron jumbotron-fluid first">
-            <div class="container">
-                <h1 class="display-4">Terms of Services</h1>
+<section>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h4 class="display-6">Terms of Use</h4>
+        </div>
+    </div>
+</section>
+<section>    
+` <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-lg-offset-12">
+                <h5 class="text-justify"><span>Terms of Use</span></h5>
+
+                <br />
+                <h6 class="text-justify">Welcome to WikiPoli</h6>
+                <p class="text-justify">Terms and Conditions commonly abbreviated as (T&C) are the legal agreement between a service
+                    provider and a person who want wants to use that service.</p><br />
+                <br />
+                <p class="text-justify">These terms and conditions outline the rules and regulations for the use of  <a
+                        href="index.html">&nbsp; WikiPoli</a> <br /><br />
+                    By accessing this website we assume you accept these terms and conditions. Do not continue to use <a href="index.html"> WikiPoli</a> if you
+                    do not agree to take all of the terms and conditions stated on this page.</p><br />
             </div>
-    </div>
-
-    <div class="container my-5 second">
-        <div style="display: flex; justify-content: space-between;" class="col-sm-12 col-md-12 col-xs-12">
-            <h5 class="secondheader">WIKIPOLI REQUIRES CONSIDERATION FOR  ALLOWING YOU ACCESS<h5>
         </div>
-        <div class="container mb-5 expand" style="overflow-y: scroll; height: 650px; margin-left: 0;">
-            <p class="paragraph">
-                READING AND ACCEPTING THE TERMS OF USE AND READING AND ACCEPTING THE PROVISIONS OF THE PRIVACY POLICY OF 
-                wikipoli ARE REQUIRED CONSIDERATIONS FOR wikipoli GRANTING YOU THE RIGHT TO VISIT, READ OR INTERACT WITH IT.            
-            <p><strong>1. YOUR AGREEMENT</strong></p>
-            <p class="paragraph">ALL PERSONS ARE DENIED ACCESS TO THIS SITE UNLESS THEY READ AND ACCEPT THE TERMS OF USE AND THE PRIVACY POLICY.
-                ALL PERSONS UNDER THE AGE OF 13 ARE DENIED ACCESS TO wikipoli IF YOU ARE UNDER 13 YEARS OF AGE, IT IS UNLAWFUL FOR YOU TO VISIT, 
-                READ, OR INTERACT WITH wikipoli OR ITS CONTENTS IN ANY MANNER. wikipoli SPECIFICALLY DENIES ACCESS TO ANY INDIVIDUAL THAT 
-                IS COVERED BY THE CHILD ONLINE PRIVACY ACT (COPA) OF 1998.
-                THE TERMS OF USE AGREEMENT MAY CHANGE FROM TIME TO TIME. VISITORS HAVE AN AFFIRMATIVE DUTY, AS PART OF THE CONSIDERATION 
-                FOR PERMISSION TO VIEW wikipoli, TO KEEP THEMSELVES INFORMED OF CHANGES.
-            </p>
 
-            <strong>2. HYPERLINKING TO SITE, CO-BRANDING, “FRAMING” AND REFERENCING SITE PROHIBITED</strong>
-            <p class="paragraph">Unless expressly authorized by website, no one may hyperlink this site, or portions thereof, (including, but not limited to, logotypes, trademarks, branding or copyrighted material) to theirs for any reason. Further, you are not allowed to reference the url (website address) of this website in any commercial or non-commercial media without express permission, nor are you allowed to ‘frame’ the site. You specifically agree to cooperate with the Website to remove or de-activate any such activities
-                 and be liable for all damages. You hereby agree to liquidated damages of US $100,000.00 plus costs and actual damages for violating this
-                  provision. 
-            </p>
-
-            <strong>3. LIMITATION OF LIABILITY</strong>
-            <p class="paragraph">By viewing, using, or interacting in any manner with this site, including banners, advertising, or pop-ups, downloads, and as a condition of the website to allow his lawful viewing, Visitor forever waives all right to claims of damage of any and all description based on any causal factor resulting in any possible harm,no matter how heinous or extensive, 
-                whether physical or emotional, foreseeable or unforeseeable, whether personal or business in nature. 
-            </p>
-
-            <strong>4. INDEMNIFICATION,SUBMISSIONS,NOTICE</strong>
-            <p class="paragraph">Visitor agrees as a condition of viewing, that any communication between Visitor and Website is deemed a submission. All submissions, including portions thereof, graphics contained thereon, or any of the content of the submission, shall become the exclusive property of the Website and may be used, without further permission, for commercial use without additional consideration of any kind. Visitor agrees to only communicate that information to the Website, 
-                which it wishes to forever allow the Website to use in any manner as it sees fit. “Submissions” is also a provision of the Privacy Policy.
-            </p>
+        <div class="row">
+            
+            <div class="col-lg-12">
+                <h5 class="text-justify">Vision</h5><br />
+                <p class="text-justify">WikiPoli is a nonprofit organization whose mission is to empower and engage
+                    people around the world to know the candidate of their choice before going for him or her and also
+                    to collect and develop content under a free license or in the public domain, and to desseminate it
+                    effectively and globally, free of charge.</p><br /><br />
+            </div>
         </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h5 class="text-justify">1. Overview</h5><br />
+                <p class="text-justify">You are welcome to join as a contributor, editor, or author but please be aware
+                    that you are responsible for all of your contributions, edits, and re-use of WikiPoli content under
+                    the law of the Federal Republic of Nigeria and other applicable laws ( which may include the laws of
+                    where you live or where you view or edit content). This means it is important that you use caution
+                    when posting content. In light of this we have some rules about what you cannot post, most of which
+                    is either for your own protection or for the protection of other users like yourself. Please keep in
+                    mind that the content we host is for general information purposes only, so if you need expert advice
+                    for a particular question ( such as medical, legal, or financial issues), you should seek the help of
+                    licensed or qualified professional. We also include other important notices and disclaimers, so
+                    please read these Terms of Use in their entirety.</p><br /><br />
+
+                <p class="text-justify"><span>a. We do not take an editorial role:</span> Because the WikiPoli Projects are collaboratively edited, all of
+                    the content that we host is provided by users like yourself, and we do not take an editorial role.
+                    This means that we do not monitor or edit the content of the project websites, and we do not take
+                    responsibility for this content.</p><br /><br />
+
+                <p class="text-justify"><span>b. You are responsible for your own actions:</span> You are legally responsible for your edits and
+                        contributions on WikiPoli, so four your own protection you should exercise caution and avoid
+                        contributing any content that may result in criminal or civil liablity under any applicable
+                        laws.</p><br /><br />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h5 class="text-justify">2. Privacy Policy</h5><br />
+                <p class="text-justify">We ask that you review the terms of our Privacy Policy, so that you are aware of
+                    how we collect and use your information. Because our services are used by people all over the world,
+                    personal information that we collect may be stored and processed in the Nigeria or any other country
+                    in which we or our agents maintain facilities. By using our services, you consent to any transfer of
+                    information outside your country.</p><br /><br />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h5 class="text-justify">3. DMCA Compliance</h5><br />
+                <p class="text-justify">The WikiPoli foundation wants to ensure that the content that we host can be
+                    re-used by other users without the fear of liability and that it is not infringing the propriety
+                    rights of others (Digital Millennium Copyright Act (DMCA) ).</p><br /><br />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <h5 class="text-justify">4. Disclaimers</h5> <br />
+                <p class="text-justify">At WikiPoli we expressly disclaim all express or implied warranties of all
+                    kinds, including but not limited to the implied warranties of merchantability, fitness for a
+                    particular purpose, and non-infringement.</p><br /><br />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h6 class="text-justify">Thank You!</h6><br />
+                <p class="text-justify">We appreciate you taking the time to read these Terms of Use, and we are very
+                    happy to have you contributing to the Projects and using our Services. Through your contributions,
+                    you are helping to build something really big - not only an important collection of collaboratively
+                    edited reference projects that provides education and information to millions who might otherwise
+                    lack access, but also a vibrant community of like-minded and engage peers, focused on a very noble
+                    goal.</p><br /><br />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <p class="text-justify">These <span>Terms of Use</span> went into effect on November 3rd, 2019.</p>
+                <br />
+            </div>
+        </div>
+
     </div>
+</section>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>

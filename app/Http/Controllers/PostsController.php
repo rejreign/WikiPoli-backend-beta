@@ -31,7 +31,7 @@ class PostsController extends Controller {
         $query = "MATCH (first_name,last_name) AGAINST ('$input' IN BOOLEAN MODE)";
 
         $data['results'] = Politician::whereRaw($query)->with('politicianpost')->get();
-        return view('web.search', $data);
+        return view('web.searchOld', $data);
     }
 
     /**

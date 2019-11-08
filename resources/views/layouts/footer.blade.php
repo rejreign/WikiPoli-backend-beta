@@ -5,6 +5,7 @@
 				<span class="group-desc">Company</span>
 				<a href="{{ url('/About') }}">About Us</a>
 				<a href="{{ url('/Careers') }}">Careers</a>
+				<a href="{{ url('/Donation') }}">Donations</a>
 			</section>
 			<section class="link-group">
 				<span class="group-desc">Help & Support</span>

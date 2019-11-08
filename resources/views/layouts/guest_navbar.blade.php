@@ -18,15 +18,16 @@
                         <a class="nav-link " @if(request()->path() == 'posts') id="nav-register" @endif href="{{url('posts')}}"><strong>Posts</strong></a>
                     </li>
                     @Auth
-                    <li class="nav-item">
-                        <a class="nav-link" @if(request()->path() == 'settings') id="nav-register" @endif  href="{{url('settings')}}"><strong>{{Auth::user()->username}}</strong></a>
-                    </li>
+                    
 
                     <li class="nav-item">
-                        <a class="nav-link" @if(request()->path() == 'profile') id="nav-register" @endif  href="{{url('profile')}}"><strong>Profile</strong></a>
+                        <a class="nav-link" @if(request()->path() == 'myprofile') id="nav-register" @endif  href="{{url('myprofile')}}"><strong>Profile</strong></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" @if(request()->path() == 'settings') id="nav-register" @endif  href="{{url('settings')}}"><strong>Settings</strong></a>
+                        <a class="nav-link" @if(request()->path() == 'profile') id="nav-register" @endif  href="{{url('profile')}}"><strong>Settings</strong></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link"><strong>{{Auth::user()->username}}</strong> <img src="/uploads/avatars/{{ Auth::user()->avatar }}" class=" justify-content-center" alt="" style="width:32px; height:32px; border-radius:50%;"></a>
                     </li>
                     <li class="nav-item">
                         <a href="{{ route('logout') }}" class="nav-link" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">

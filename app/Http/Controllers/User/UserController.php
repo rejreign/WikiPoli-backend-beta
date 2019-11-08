@@ -7,7 +7,9 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Traits\HasError;
 use App\UserProfile;
 use App\User;
+use App\Models\Post;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Image;
 
 class UserController extends Controller {
@@ -19,12 +21,33 @@ class UserController extends Controller {
     }
  
     public function profile() {
-        return view('users.profile.index');
+
+        if(Auth::check()){
+            
+            $user=Auth::user();
+            $posts=DB::table('posts')->where('author_id', $user->id)->get();
+
+            return(view('users.profile.settings',['user'=>$user,'posts'=>$posts]));
+            //echo $posts; 
+        }
+       // return view('users.profile.index');
     }
 
-    public function settings() {
+    public function myprofile() {
+
+        if(Auth::check()){
+            
+            $user=Auth::user();
+            $posts=DB::table('posts')->where('author_id', $user->id)->get();
+            return(view('users.profile.profile',['user'=>$user,'posts'=>$posts]));
+            //echo $posts; 
+        }
+       // return view('users.profile.index');
+    }
+
+    public function settings(Request $request) {
         //$posts = DB::table('posts')->where('author_id', Auth::user()->id)->get();
-        return view('users.profile.settings');
+        return view('users.profile.index');
     }
 
 
@@ -51,7 +74,7 @@ class UserController extends Controller {
     }
 
     public function updateAvatar(Request $request) {
-        //handling the user upload of avatar
+        //handling the user upload of avatar 
         if ($request->hasFile('avatar')) {
             $avatar = $request->file('avatar');
             $filename = time() . '.' . $avatar->getClientOriginalExtension();
@@ -61,8 +84,15 @@ class UserController extends Controller {
             $user->avatar = $filename;
             $user->save();
         }
-        //$posts = DB::table('posts')->where('author_id', $user->id)->get();
-        return(view('users.profile.settings', ['user' => $user]));
+        
+        if(Auth::check()){
+            
+            $user=Auth::user();
+            $posts=DB::table('posts')->where('author_id', $user->id)->get();
+
+            return(view('users.profile.settings',['user'=>$user,'posts'=>$posts]));
+            //echo $posts; 
+        }
     }
 
 }

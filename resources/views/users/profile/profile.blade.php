@@ -417,10 +417,14 @@
             <img src="/uploads/avatars/{{ Auth::user()->avatar }}" class=" justify-content-center" alt="" style="width:150px; height:150px; border-radius:50%; display:block; margin-left:auto; margin-right:auto;">
             <h3 class="text-center">{{ Auth::user()->full_name }}</h3>
             <p>Human activist</p>
-            <span class="edit_profile"> <a href="{{url('profile')}}">Edit Profile</a></span>
+            <span class="edit_profile"> <a href="{{url('settings')}}">Edit Profile</a></span>
                 <span class="edit_profile"> <a href="{{ url('/changePassword') }}">Change Password</a></span>
-                
-                            <span> &nbsp;&nbsp;|&nbsp;&nbsp; {{count($posts)}} post(s) </span>
+                                <i class="fa fa-star"></i>
+								<i class="fa fa-star"></i>
+								<i class="fa fa-star"></i>
+								<i class="fa fa-star"></i>
+								<i class="fa fa-star whit"></i>
+                            <span> &nbsp;&nbsp;|&nbsp;&nbsp; {{count($posts)}} post(s)</span>
                             <hr id="hr">
 
 
@@ -439,89 +443,82 @@
 
                             </aside>
                             <section class="col-12 col-sm-9">
-                                <div id="right">
-                                    <div class="accountSettings">
-                                        <h3>Account Settings</h3>
-
-                                        <div id="accountSettingsContent">
-                                            <div class="edits">
-                                                <form enctype="multipart/form-data" action="/profile" method="post">
-                                                    <b>Change Profile Picture</b>
-                                                    <input type="file" name="avatar">
-                                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                                    <span><input type="submit" value="Update Avatar" class="btn btn-primary btn-sm"></span>                                        
-                                                </form>
-                                            </div>
-
-                                        </div>
+                                
+                            <ul class="nav nav-tabs">
+										<li class="nav-item"><a class="nav-link"  href=""></a></li>
+											<li class="nav-item">
+													<a class="nav-link active" data-toggle="tab" href="#self_post">My Post(s)</a>
+											</li>
+											<li class="nav-item">
+												<a class="nav-link" href="#general_post" data-toggle="tab">General Post</a>
+											</li>
+											<!-- <li class="nav-item">
+												<a class="nav-link" href="#">Followers List</a>
+											</li> -->
+									</ul>
 
 
-                                    </div>
+									<div class="tab-content">
+                                    
+												<div class="tab-pane container active" id="self_post">
+                                                <?php
+                                                    function textShorten($text, $limit = 200){
+                                                        $text = $text. " ";
+                                                        $text = substr($text, 0, $limit);
+                                                        $text = substr($text, 0, strrpos($text, ' '));
+                                                        $text = $text."...";
+                                                        return $text;
+                                                    }
+                                                ?>
+                                                @foreach($posts as $post)
+													<div class="post_cont">
+                                                        <img src="/uploads/avatars/{{ Auth::user()->avatar }}" class=" justify-content-center" alt="" style="width:100px; height:100px; border-radius:50%; padding:11px; margin-left:auto; margin-right:auto;">
 
-                                    <div class="notificationSettings">
-                                        <h3>Notification Settings</h3>
-                                        <div id="notificationSettingsContent">
-                                            <div class="edit">
-                                                <p>If someone likes a post I contributed to</p>
-                                                <span class="toggle"><i onclick="toggleOn(this)" class="fa fa-toggle-on"></i><i
-                                                        onclick="toggleOff(this)" class="fa fa-toggle-off"></i></span>
-                                            </div>
-                                            <div class="edit">
-                                                <p>if someone comments on post I contributed to</p>
-                                                <span class="toggle"><i onclick="toggleOn(this)" class="fa fa-toggle-on"></i><i
-                                                        onclick="toggleOff(this)" class="fa fa-toggle-off"></i></span>
-                                            </div>
-                                            <div class="edit">
-                                                <p>If someone comments on my post</p>
-                                                <span class="toggle"><i onclick="toggleOn(this)" class="fa fa-toggle-on"></i><i
-                                                        onclick="toggleOff(this)" class="fa fa-toggle-off"></i></span>
-                                            </div>
-                                            <div class="edit">
-                                                <p>If someone likes my post</p>
-                                                <span class="toggle"><i onclick="toggleOn(this)" class="fa fa-toggle-on"></i><i
-                                                        onclick="toggleOff(this)" class="fa fa-toggle-off"></i></span>
-                                            </div>
-                                            <div class="edit last">
-                                                <p>Recent post on politician</p>
-                                                <span class="toggle"><i onclick="toggleOn(this)" class="fa fa-toggle-on"></i><i
-                                                        onclick="toggleOff(this)" class="fa fa-toggle-off"></i></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="doneButton">
-                                        <button type="click" class="btn btn-primary btn-lg">Done</button>
-                                    </div>
-                                    <div class="deleteMyAccount">
-                                        <button type="click" class="btn btn-primary btn-lg">Delete my account</button>
-                                    </div>
-                                    <!--<div class="rightOutterWrapper">
-                                            <div class="rightInnerWrapper">
-                                                <h4>Font Size</h4>
-                                                <p>Adjust font size for better readability</p>
-                                            </div>
-                                            <button type="click">Regular</button>
-                                        </div>-->
-                                </div>
+															<div class="post_det"> 
+																	<h3><a href="{{url('posts/'.$post->slug)}}">{{$post->title}}</a> <span> {{date('F d, Y', strtotime($post->created_at))}}</span></h3>
+
+																	<p>{!! textShorten($post->body) !!}<br><a href="{{url('posts/'.$post->slug)}}">Read More</a></p>
+															</div>
+															
+													</div>
+                                                @endforeach
+
+                                                </div>
+                                    
+												<div class="tab-pane container fade" id="general_post">
+														<div class="post_cont">
+                                                        <img src="/uploads/avatars/{{ Auth::user()->avatar }}" class=" justify-content-center" alt="" style="width:100px; height:100px; border-radius:50%; display:block; margin-left:auto; margin-right:auto;">
+
+															<div class="post_det"> 
+																	<h3>Celestine  Stephen <span> Tue, 05 Nov 2019</span></h3>
+
+																	<p>He was the Nigerian Presidential Candidate of the Alliance for New Nigeria party 
+																			(ANN) for the 2019 Presidential elections. He was born to Lyiwola and Adeline Durotoye,
+																			both profesors at the University... <br><a href="">Read More</a></p>
+															</div>
+															
+													</div>
+													<div class="post_cont">
+                                                    <img src="/uploads/avatars/{{ Auth::user()->avatar }}" class=" justify-content-center" alt="" style="width:100px; height:100px; border-radius:50%; display:block; margin-left:auto; margin-right:auto;">
+
+														<div class="post_det"> 
+																<h3>Celestine  Stephen <span> Tue, 05 Nov 2019</span></h3>
+
+																<p>He was the Nigerian Presidential Candidate of the Alliance for New Nigeria party 
+																		(ANN) for the 2019 Presidential elections. He was born to Lyiwola and Adeline Durotoye,
+																		both profesors at the University... <br><a href="">Read More</a></p>
+														</div>
+														
+												</div>
+													
+												</div>
+									</div>
 
                             </section>
                             </div>
 
 
                             </div>
-                            @section('script')
-                            <script>
-                                function toggleOn(obj) {
-                                    obj.style.display = "none";
-                                    obj.nextElementSibling.style.display = "inline";
-                                }
-
-                                function toggleOff(obj) {
-                                    obj.style.display = "none";
-                                    obj.previousElementSibling.style.display = "inline";
-                                }
-                            </script>
-
-                            @endsection
 
 
                             @section('footer')
