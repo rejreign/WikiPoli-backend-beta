@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\DB;
 use App\Politician;
 use Spatie\Searchable\Search;
 use App\PoliticianPost;
-use Image;
+use App\PostTakeDown;
 
 class PostController extends Controller {
 
@@ -80,7 +80,23 @@ class PostController extends Controller {
             'message' => 'Todo'
         ]);
     }
+    public function takeDown(Request $request) {
+        $input = $request->all();
+       $rules = [
+            'reason' => ['required']
+        ];
 
+ 
+        $error = static::getErrorMessageAjax($input, $rules);
+        if ($error) {
+            return $error;
+        }
+        PostTakeDown::create($input);
+         return ([
+            'status' => 200,
+            'message' => 'Post Takedown Successfully Recoreded for Review'
+        ]);
+    }
    
 
 }

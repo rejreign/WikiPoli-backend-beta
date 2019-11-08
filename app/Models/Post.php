@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Model;
 use App\Comment;
-
+use App\PostReaction;
 class Post extends Model {
 
     use SoftDeletes;
@@ -28,6 +28,10 @@ class Post extends Model {
 
     public function cutTitle() {
         return str_limit(strip_tags($this->title), 45, '...');
+    }
+
+    public function likeunlike() {
+        return $this->hasMany(PostReaction::class, 'post_id');
     }
 
 }
