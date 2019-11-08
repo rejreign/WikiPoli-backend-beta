@@ -31,7 +31,7 @@ class PostsController extends Controller {
         $query = "MATCH (first_name,last_name) AGAINST ('$input' IN BOOLEAN MODE)";
 
         $data['results'] = Politician::whereRaw($query)->with('politicianpost')->get();
-        return view('web.search', $data);
+        return view('web.searchOld', $data);
     }
 
     /**
@@ -52,7 +52,7 @@ class PostsController extends Controller {
      */
     public function show($slug) {
 
-        $data['post'] = Post::whereSlug($slug)->with('user')->with('comments')->firstOrFail();
+        $data['post'] = Post::whereSlug($slug)->with('user')->with('comments')->with('likeunlike')->firstOrFail();
         return view('web.post.readmore',$data);
 
     }

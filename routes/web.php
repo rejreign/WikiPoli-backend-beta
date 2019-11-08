@@ -72,9 +72,10 @@ Route::get('/home', 'PostsController@index')->name('home');
 Route::get('/create-post', 'Post\PostController@index');
 Route::post('/create-post', 'Post\PostController@create');
 Route::post('/draf-post', 'Post\PostController@draft');
+Route::post('/post-takedown', 'Post\PostController@takeDown');
 
 
-
+Route::post('/like-post', 'PostReactionController@like')->name('like-post');
 
 
 //Admin Routes
