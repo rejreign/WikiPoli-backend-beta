@@ -135,7 +135,7 @@
         <div class="col-12 col-md-6 m-auto">
             <h3 class="h1">{{$post->title}}</h3>
             <h5 class="lead">Posted  on {{ date('F d, Y', strtotime($post->created_at)) }}</h5>
-            <h5 class="lead">Published by <a href="">{{$post->user->username}}</a></h5>
+            <h5 class="lead">Published by <a href=""><img src="/uploads/avatars/{{$post->user->avatar}}" class=" justify-content-center" alt="" style="width:30px; height:30px; border-radius:20%; margin:5px;"></a><a href="">{{$post->user->username}}</a></h5>
             <a href="#" onclick="window.open('http://twitter.com/share?text={{$post->title}} -&amp; url={{url('posts/'.$post->slug)}}', 'twitterShare', 'width=626,height=436');
                 return false;" title="Tweet This Post"  class="share"><i class="fa fa-twitter-square "></i></a>
             <a href="#" onclick="window.open('http://www.facebook.com/sharer.php?u={{url('posts/'.$post->slug)}} &amp; t={{$post->title}}', 'facebookShare', 'width=626,height=436');
@@ -188,7 +188,7 @@
             <div class="comment-div">
                 <div class="icon">
                     <a href="">
-                        <img src="/uploads/avatars/{{ $comment->user->avatar }}" width="70" height="70">
+                        <img src="/uploads/avatars/{{ $comment->user->avatar }}" style="width:70px; height:70px; border-radius:5%; margin:5px;">
                     </a>
                 </div>
                 <div class="ml-5 text">
