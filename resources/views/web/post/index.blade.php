@@ -209,8 +209,7 @@
                 <a href="{{url('posts/'.$post->slug)}}"><i class="fa fa-reply ml-3" aria-hidden="true"  style="color:#1257AE"></i></a>
                 <a href="#" onclick="window.open('http://www.facebook.com/sharer.php?u={{url('posts/'.$post->slug)}}& amp; t={{$post->title}}', 'facebookShare', 'width=626,height=436');
                         return false;" title="Share on Facebook"><i class="fab fa-facebook  float-right" aria-hidden="true"></i></a>
-                <a href="#" onclick="window.open('http://twitter.com/share?text={{$post->title}} - & amp;
-                        url={{url('posts/'.$post->slug)}}', 'twitterShare', 'width=626,height=436');
+                <a href="#" onclick="window.open('http://twitter.com/share?text={{$post->title}} -&amp;url={{url('posts/'.$post->slug)}}', 'twitterShare', 'width=626,height=436');
                                 return false;" title="Tweet This Post"><i class="fab fa-twitter pr-3 float-right"></i></a>
 
             </div>
