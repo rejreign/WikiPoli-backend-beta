@@ -188,7 +188,7 @@
             <div class="comment-div">
                 <div class="icon">
                     <a href="">
-                        <img src="/uploads/avatars/{{ Auth::user()->avatar }}" width="70" height="70">
+                        <img src="/uploads/avatars/{{ $comment->user->avatar }}" width="70" height="70">
                     </a>
                 </div>
                 <div class="ml-5 text">
