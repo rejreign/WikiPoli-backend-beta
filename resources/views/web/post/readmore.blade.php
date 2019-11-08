@@ -136,9 +136,9 @@
             <h3 class="h1">{{$post->title}}</h3>
             <h5 class="lead">Posted  on {{ date('F d, Y', strtotime($post->created_at)) }}</h5>
             <h5 class="lead">Published by <a href="">{{$post->user->username}}</a></h5>
-            <a href="#" onclick="window.open('http://twitter.com/share?text={{$post->title}} - & amp; url={{url('posts/'.$post->slug)}}', 'twitterShare', 'width=626,height=436');
+            <a href="#" onclick="window.open('http://twitter.com/share?text={{$post->title}} -&amp; url={{url('posts/'.$post->slug)}}', 'twitterShare', 'width=626,height=436');
                 return false;" title="Tweet This Post"  class="share"><i class="fa fa-twitter-square "></i></a>
-            <a href="#" onclick="window.open('http://www.facebook.com/sharer.php?u={{url('posts/'.$post->slug)}}& amp; t={{$post->title}}', 'facebookShare', 'width=626,height=436');
+            <a href="#" onclick="window.open('http://www.facebook.com/sharer.php?u={{url('posts/'.$post->slug)}} &amp; t={{$post->title}}', 'facebookShare', 'width=626,height=436');
                 return false;" title="Share on Facebook"  class="share ml-3"><i class="fa fa-facebook-square"></i></a>
         </div>
     </div>
