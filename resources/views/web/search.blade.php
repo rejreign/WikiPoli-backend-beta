@@ -387,7 +387,7 @@
                                     <div class="blog-content-body col-md-10 col-lg-10">
                                         <div class="post-meta">
                                             <span class="category">Author</span>
-                                            <span class="category mr-2">Date</span>
+                                            <span class="category mr-2">Date</span> 
                                             <!-- <span class="ml-2"><span class="fa fa-comments"></span> {{post.comments.count}}</span> -->
                                         </div>
                                         <h2>{{$p->cutTitle()}}</h2>
