@@ -327,10 +327,10 @@
 
                 <!--                    search box starts here-->
                 <form action="{{url('search')}}" method="get">
-                    <div class="justify-content-right search-box">
-                        <input type="text" placeholder="search" class="">
-                        <button class="">Search</button>
-                    </div>
+                <div class="justify-content-right search-box">
+                    <input type="text" placeholder="search" class="">
+                    <button class="">Search</button>
+                </div>
                 </form>
 
             </div>
