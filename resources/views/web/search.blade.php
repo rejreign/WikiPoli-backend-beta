@@ -4,68 +4,7 @@
 @extends('layouts.guest')
 @section('style')
 <style>
-    html,
-        body {
-            min-height: 100%
-        }
-
-        body {
-            background: #f6f6f6;
-            font-family: 'Nunito', segoe UI, sans-serif;
-        }
-
-
-        .search-results-container {
-            background-color: #fff
-        }
-
-        #header {
-            width: 100%;
-            padding: 0;
-        }
-
-        #header #navbar {
-            padding: 0;
-        }
-
-        #header .logo img {
-            width: 150px;
-        }
-
-        #header .navbar p {
-            font-size: 2rem;
-            color: #6D9BF1;
-        }
-
-        #header .menu .nav-link {
-            font-size: 1.1rem;
-            color: rgba(0, 0, 0, 0.7);
-            transition: 0.4s ease-out;
-        }
-
-        #header .menu .nav-link:hover {
-            color: blue;
-        }
-
-        #header .menu #nav-register {
-            background-color: #1257AE;
-            align-self: center;
-            color: white;
-            padding: 0.4rem 1.5rem;
-        }
-
-        #header .menu #nav-register:hover {
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
-        }
-
-        #header .menu li {
-            margin-left: 2.2rem;
-        }
-
-        #header .fa-bars {
-            color: #000000;
-        }
-
+    
         /*Search results style starts here*/
         .blog-entries .blog-entry .blog-content-body {
             padding: 20px;
@@ -155,113 +94,7 @@
 
         }
 
-        /*        search result style ends here*/
-        @media (max-width: 860px) {
-            #header .fa-bars {
-                margin-bottom: 1rem;
-            }
 
-            #header .menu {
-                border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-                padding-bottom: 1rem;
-            }
-
-            #header .menu .nav-link {
-                font-size: 1rem;
-                padding: 0.3rem 1rem;
-            }
-
-            #header .menu #nav-register {
-                padding: 0.3rem 1rem;
-            }
-
-            #header .menu li {
-                margin-left: 0.5rem;
-            }
-        }
-
-        #footer {
-            font-family: Nunito, segoe UI, sans-serif;
-            margin: 1rem auto;
-            width: 100%;
-        }
-
-        #footer #hr {
-            width: 80%;
-            border: 0.5px solid rgba(0, 0, 0, 0.08);
-        }
-
-        #footer #nav-flex {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-around;
-            margin: 2rem auto;
-        }
-
-        #footer #nav-flex .link-group {
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-        }
-
-        #footer .link-group .group-desc {
-            color: #1257AE;
-            font-weight: bolder;
-            margin: 1rem 0;
-        }
-
-        #footer .link-group a {
-            text-decoration: none;
-            color: rgba(0, 0, 0, 0.8);
-            margin: 0.15rem 0;
-            transition: 0.4s ease-out;
-        }
-
-        #footer .link-group a:hover {
-            color: rgb(100, 100, 200);
-        }
-
-        #footer #socials {
-            display: flex;
-            flex-direction: row;
-        }
-
-        #footer #socials .social-link {
-            margin-right: 1rem;
-            border-radius: 100%;
-            height: 30px;
-            border: 2px solid white;
-            transition: 0.4s ease-out;
-        }
-
-        #footer #socials .social-link:hover {
-            border: 2px solid skyblue;
-        }
-
-
-        @media (max-width: 860px) {
-
-            .profile-input input,
-            .profile-input select,
-            .profile-input textarea {
-                width: 100% !important;
-            }
-
-            #footer {
-                padding-bottom: 1rem;
-            }
-
-            #footer #nav-flex {
-                flex-direction: column;
-                margin: 1rem 2rem;
-            }
-
-            #footer .link-group .group-desc {
-                margin: 1.5rem 0 0.5rem;
-            }
-
-
-        }
 
         .search-line {
             display: flex;
@@ -321,15 +154,15 @@
         <div class="container ">
             <div class="row search-line pt-4">
                 <div class="">
-                    <h3 class="mb-4 text-success">Search Results for <span id="search-keyword">"KeyWord"</span></h3>
+                    <h3 class="mb-4 text-success">Search Results for <span id="search-keyword">"{{request('q')}}"</span></h3>
                     <!-- <h4>Results found for Keyword</h4> -->
                 </div>
 
                 <!--                    search box starts here-->
                 <form action="{{url('search')}}" method="get">
                 <div class="justify-content-right search-box">
-                    <input type="text" placeholder="search" class="">
-                    <button class="">Search</button>
+                    <input type="text" name="q" placeholder="search" class="">
+                    <button type="submit" class="">Search</button>
                 </div>
                 </form>
 
@@ -353,7 +186,7 @@
                     <div class="row justify-content-between">
                     @forelse($results as $result)
                         <div class="card col-lg-3 col-12 col-md-4 mb-5 blog-entry"><a href="#">
-                                <img class="card-img-top img-fluid" src="{{asset($result->file)}}" alt="Card image" style="width:100%">
+                                <img class="card-img-top img-fluid" src="{{$result->file}}" alt="Card image" style="width:100%">
                                 <div class="card-body">
                                     <h4 class="card-title text-center">{{$result->first_name }} {{$result->last_name }}</h4>
 
@@ -377,18 +210,16 @@
 
                         <!--                         Search box result starts here-->
                         <div class="col-md-12 my-1">
-                            @foreach($results as $result)
-                            @foreach($result->politicianpost as $read)
-                            @foreach($read->post as $p)
-
+                              @foreach($results as $result)
+                                @foreach($result->politicianpost as $read)
+                                @foreach($read->post as $p)
                             <a href="{{url('posts/'.$p->slug)}}" class="blog-entry element-animate" data-animate-effect="fadeIn">   
                                 <div class="row">
-                                    <div class="col-md-2 col-lg-2 col  d-flex justify-content-center"><img src="{{asset($p->file)}}" alt="{{$p->cutTitle()}}" class="img-fluid" style=""></div>
+                                    <div class="col-md-2 col-lg-2 col  d-flex justify-content-center"><img src="{{$p->file}}" alt="{{$p->cutTitle()}}" class="img-fluid" style=""></div>
                                     <div class="blog-content-body col-md-10 col-lg-10">
                                         <div class="post-meta">
-                                            <span class="category">Author</span>
-                                            <span class="category mr-2">Date</span> 
-                                            <!-- <span class="ml-2"><span class="fa fa-comments"></span> {{post.comments.count}}</span> -->
+                                            <span class="category">{{$p->user->username}}</span>
+                                            <span class="category mr-2">{{ date('F d, Y', strtotime($p->created_at)) }}</span> 
                                         </div>
                                         <h2>{{$p->cutTitle()}}</h2>
                                         <p>{{$p->cutBody()}}</p>
