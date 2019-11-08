@@ -51,6 +51,7 @@ Route::get('/search', 'PostsController@search')->name('search');
 Route::get('/settings', 'User\UserController@settings');
 Route::post('/settings', 'User\UserController@updateAvatar');
 Route::get('/profile', 'User\UserController@profile');
+Route::get('/myprofile', 'User\UserController@myprofile');
 Route::post('/edit-profile', 'User\UserController@edit')->name('edit-profile');
 
 //Change Password
