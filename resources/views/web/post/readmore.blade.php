@@ -188,7 +188,7 @@
     <div class="col-12 col-md-6">
         <h3>{{$post->title}}</h3>
         <h5>Posted  on {{ date('F d, Y', strtotime($post->created_at)) }}</h5>
-        <h5>Published by  <span> {{$post->user->username}}</span></h5>
+        <h5>Published by  <span><img src="/uploads/avatars/{{ $post->user->avatar }}" style="width:35px; height:35px; border-radius:50%;"></span><span> {{$post->user->username}}</span></h5>
         <a href="#" onclick="window.open('http://twitter.com/share?text={{$post->title}} - & amp; url={{url('posts/'.$post->slug)}}', 'twitterShare', 'width=626,height=436');
                     return false;" title="Tweet This Post"><i class="fa fa-twitter-square "></i></a>
        <a href="#" onclick="window.open('http://www.facebook.com/sharer.php?u={{url('posts/'.$post->slug)}}& amp; t={{$post->title}}', 'facebookShare', 'width=626,height=436');
