@@ -472,7 +472,7 @@
                                                 ?>
                                                 @foreach($posts as $post)
 													<div class="post_cont">
-                                                        <img src="/uploads/avatars/{{ Auth::user()->avatar }}" class=" justify-content-center" alt="" style="width:100px; height:100px; border-radius:50%; display:block; margin-left:auto; margin-right:auto;">
+                                                        <img src="/uploads/avatars/{{ Auth::user()->avatar }}" class=" justify-content-center" alt="" style="width:100px; height:100px; border-radius:50%; padding:11px; margin-left:auto; margin-right:auto;">
 
 															<div class="post_det"> 
 																	<h3><a href="{{url('posts/'.$post->slug)}}">{{$post->title}}</a> <span> {{date('F d, Y', strtotime($post->created_at))}}</span></h3>

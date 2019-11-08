@@ -213,7 +213,7 @@
            
 <!--            <a href="#"><img src="images/profileSam1.png" alt=""></a>-->
             <!-- comment header -->
-            <span class="comment_details"> <a href="#">{{$comment->user->username}}</a> <span>{{ date('F d, Y', strtotime($comment->created_at)) }}.</span> </span>
+            <img src="/uploads/avatars/{{ $comment->user->avatar }}" style="width:30px; height:30px; border-radius:50%;"><span class="comment_details"> <a href="#">{{$comment->user->username}}</a> <span>{{ date('F d, Y', strtotime($comment->created_at)) }}.</span> </span>
 
             <p>
               {!! nl2br($comment->comment) !!}
