@@ -23,7 +23,7 @@
                     <div class="collapse navbar-collapse show" id="collapsibleNavId">
                         <ul class="navbar-nav ml-auto mt-2 mt-lg-0 menu">
                             <li class="nav-item dropdown">
-                                <a class="nav-link text-primary pr-2 dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user" aria-hidden="true"></i><strong>{{Auth::user()->username}}</strong> <img src="/uploads/avatars/{{ Auth::user()->avatar }}" class=" justify-content-center" alt="" style="width:30px; height:30px; border-radius:20%;"></a></a>
+                                <a class="nav-link text-primary pr-2 dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><strong>{{Auth::user()->username}}</strong> <img src="/uploads/avatars/{{ Auth::user()->avatar }}" class=" justify-content-center" alt="" style="width:30px; height:30px; border-radius:20%;"></a></a>
                                 <div class="dropdown-menu bg-light" aria-labelledby="dropdownId">
                                     <a class="dropdown-item nav-link" @if(request()->path() == 'myprofile') id="nav-register" @endif  href="{{url('myprofile')}}">My Profile</a>
                                     <div class="dropdown-divider"></div>
