@@ -428,6 +428,7 @@
                             <hr id="hr">
 
 
+
                             <div class="contact">
                                 <h1>Contact Information</h1>
                                 <h2>Email Address:</h2>
@@ -450,7 +451,7 @@
 													<a class="nav-link active" data-toggle="tab" href="#self_post">My Post(s)</a>
 											</li>
 											<li class="nav-item">
-												<a class="nav-link" href="#general_post" data-toggle="tab">General Post</a>
+												<a class="nav-link" href="#general_post" data-toggle="tab">Liked Posts</a>
 											</li>
 											<!-- <li class="nav-item">
 												<a class="nav-link" href="#">Followers List</a>
@@ -485,33 +486,38 @@
 
                                                 </div>
                                     
-												<div class="tab-pane container fade" id="general_post">
-														<div class="post_cont">
-                                                        <img src="/uploads/avatars/{{ Auth::user()->avatar }}" class=" justify-content-center" alt="" style="width:100px; height:100px; border-radius:50%; display:block; margin-left:auto; margin-right:auto;">
+												    <div class="tab-pane container fade" id="general_post">
+                                                        @if(count($liked_posts) != 0)
+                                                                @foreach($posts as $post)
+                                                                
+                                                                    @foreach($liked_posts as $liked_post)
+                                                                        @if($post->id==$liked_post->post_id)
 
-															<div class="post_det"> 
-																	<h3>Celestine  Stephen <span> Tue, 05 Nov 2019</span></h3>
+                                                                            <div class="post_cont">
+                                                                                <img src="/uploads/avatars/{{ Auth::user()->avatar }}" class=" justify-content-center" alt="" style="width:100px; height:100px; border-radius:50%; padding:11px; margin-left:auto; margin-right:auto;">
 
-																	<p>He was the Nigerian Presidential Candidate of the Alliance for New Nigeria party 
-																			(ANN) for the 2019 Presidential elections. He was born to Lyiwola and Adeline Durotoye,
-																			both profesors at the University... <br><a href="">Read More</a></p>
-															</div>
-															
-													</div>
-													<div class="post_cont">
-                                                    <img src="/uploads/avatars/{{ Auth::user()->avatar }}" class=" justify-content-center" alt="" style="width:100px; height:100px; border-radius:50%; display:block; margin-left:auto; margin-right:auto;">
+                                                                                    <div class="post_det"> 
+                                                                                            <h3><a href="{{url('posts/'.$post->slug)}}">{{$post->title}}</a> <span> {{date('F d, Y', strtotime($post->created_at))}}</span></h3>
 
-														<div class="post_det"> 
-																<h3>Celestine  Stephen <span> Tue, 05 Nov 2019</span></h3>
-
-																<p>He was the Nigerian Presidential Candidate of the Alliance for New Nigeria party 
-																		(ANN) for the 2019 Presidential elections. He was born to Lyiwola and Adeline Durotoye,
-																		both profesors at the University... <br><a href="">Read More</a></p>
-														</div>
-														
-												</div>
+                                                                                            <p>{!! textShorten($post->body) !!}<br><a href="{{url('posts/'.$post->slug)}}">Read More</a></p>
+                                                                                    </div>
+                                                                                    
+                                                                            </div>
+                                                                        @endif                                                                    
+                                                                    @endforeach
+                                                        
+                                                                
+                                                                    
+                                                                @endforeach
+                                                        @else
+                                                            <br>
+                                                            <div><h3>You have no liked Posts</h3></div>
+                                                        @endif
+                                                            
+                                                        
+													    
 													
-												</div>
+												    </div>
 									</div>
 
                             </section>

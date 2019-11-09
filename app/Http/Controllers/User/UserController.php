@@ -39,7 +39,8 @@ class UserController extends Controller {
             
             $user=Auth::user();
             $posts=DB::table('posts')->where('author_id', $user->id)->get();
-            return(view('users.profile.profile',['user'=>$user,'posts'=>$posts]));
+            $liked_posts=DB::table('post_reactions')->where('user_id', $user->id)->get();
+            return(view('users.profile.profile',['user'=>$user,'posts'=>$posts,'liked_posts'=>$liked_posts]));
             //echo $posts; 
         }
        // return view('users.profile.index');
