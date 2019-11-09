@@ -72,14 +72,14 @@
                     @else
                     <p>Status: <span class="text-success">Approved</span></p>
                     @endif
-                    <button class="activity-cta">View full post +</button>
+                    <a href="{{ url('admin/view-post', $recent->id) }}"> <button class="activity-cta">View full post +</button></a>
                 </div>
                 <div class="activity child">
                     <p>Date: {{date('d/m/Y', strtotime($recent->created_at))}}</p>
-                    <button class=" activity-cta">Edit +</button>
+                    <a href="{{ url('admin/edit-post', $recent->id) }}"> <button class=" activity-cta">Edit +</button></a>
                 </div>
             </div>
-
+<br/>
             @empty
             <div class="text-center ">
 

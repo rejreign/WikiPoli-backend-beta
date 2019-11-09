@@ -49,8 +49,8 @@ Route::get('/search', 'PostsController@search')->name('search');
 
 //user
 Route::get('/settings', 'User\UserController@settings');
-Route::post('/settings', 'User\UserController@updateAvatar');
 Route::get('/profile', 'User\UserController@profile');
+Route::post('/profile', 'User\UserController@updateAvatar');
 Route::get('/myprofile', 'User\UserController@myprofile');
 Route::post('/edit-profile', 'User\UserController@edit')->name('edit-profile');
 
@@ -72,9 +72,10 @@ Route::get('/home', 'PostsController@index')->name('home');
 Route::get('/create-post', 'Post\PostController@index');
 Route::post('/create-post', 'Post\PostController@create');
 Route::post('/draf-post', 'Post\PostController@draft');
+Route::post('/post-takedown', 'Post\PostController@takeDown');
 
 
-
+Route::post('/like-post', 'PostReactionController@like')->name('like-post');
 
 
 //Admin Routes

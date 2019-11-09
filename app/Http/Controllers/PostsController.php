@@ -52,7 +52,7 @@ class PostsController extends Controller {
      */
     public function show($slug) {
 
-        $data['post'] = Post::whereSlug($slug)->with('user')->with('comments')->firstOrFail();
+        $data['post'] = Post::whereSlug($slug)->with('user')->with('comments')->with('likeunlike')->firstOrFail();
         return view('web.post.readmore',$data);
 
     }

@@ -84,8 +84,15 @@ class UserController extends Controller {
             $user->avatar = $filename;
             $user->save();
         }
-        //$posts = DB::table('posts')->where('author_id', $user->id)->get();
-        return(view('users.profile.settings', ['user' => $user]));
+        
+        if(Auth::check()){
+            
+            $user=Auth::user();
+            $posts=DB::table('posts')->where('author_id', $user->id)->get();
+
+            return(view('users.profile.settings',['user'=>$user,'posts'=>$posts]));
+            //echo $posts; 
+        }
     }
 
 }

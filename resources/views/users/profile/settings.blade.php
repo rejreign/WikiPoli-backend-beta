@@ -445,7 +445,7 @@
 
                                         <div id="accountSettingsContent">
                                             <div class="edits">
-                                                <form enctype="multipart/form-data" action="/settings" method="post">
+                                                <form enctype="multipart/form-data" action="/profile" method="post">
                                                     <b>Change Profile Picture</b>
                                                     <input type="file" name="avatar">
                                                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
