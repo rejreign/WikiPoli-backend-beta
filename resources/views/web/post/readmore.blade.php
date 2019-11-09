@@ -139,6 +139,7 @@
     }
     .col-md-6 img {
         width:  100%;
+        object-fit: contain;
     }
 
     .col-md-6 h3 {
