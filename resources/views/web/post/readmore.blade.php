@@ -89,7 +89,8 @@
     }
 
     .sub-text {
-        display: flex;
+        /* display: flex; */
+        overflow-wrap: break-word;
     }
 
     .follow {
@@ -106,6 +107,7 @@
 
         .text {
             margin-top: auto;
+            overflow: hidden;
         }
 
         .sub-text h4 {
@@ -118,6 +120,7 @@
         .follow {
             font-size: 0.9em;
             margin-top: 0.1em;
+            display: flex;
         }
     }
 
