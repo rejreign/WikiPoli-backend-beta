@@ -138,7 +138,7 @@
         <div class="col-12 col-md-6 m-auto">
             <h3 class="h1">{{$post->title}}</h3>
             <h5 class="lead">Posted  on {{ date('F d, Y', strtotime($post->created_at)) }}</h5>
-            <h5 class="lead">Published by <a href=""><img src="/uploads/avatars/{{$post->user->avatar}}" class=" justify-content-center" alt="" style="width:30px; height:30px; border-radius:20%; margin:5px;"></a><a href="">{{$post->user->username}}</a></h5>
+            <h5 class="lead">Published by <img src="/uploads/avatars/{{$post->user->avatar}}" class=" justify-content-center" alt="" style="width:30px; height:30px; border-radius:20%; margin:5px;"><a href="" data-toggle="modal" data-target="#userInfoModal">{{$post->user->username}}</a></h5>
             <a href="#" onclick="window.open('http://twitter.com/share?text={{$post->title}} -&amp; url={{url('posts/'.$post->slug)}}', 'twitterShare', 'width=626,height=436');
                 return false;" title="Tweet This Post"  class="share"><i class="fa fa-twitter-square "></i></a>
             <a href="#" onclick="window.open('http://www.facebook.com/sharer.php?u={{url('posts/'.$post->slug)}} &amp; t={{$post->title}}', 'facebookShare', 'width=626,height=436');
@@ -190,7 +190,7 @@
         <div class="container">
             <div class="comment-div">
                 <div class="icon">
-                    <a href="">
+                    <a href="" data-toggle="modal" data-target="#commentInfoModal-{{$comment->user->id}}">
                         <img src="/uploads/avatars/{{ $comment->user->avatar }}" style="width:70px; height:70px; border-radius:5%; margin:5px;">
                     </a>
                 </div>
@@ -205,6 +205,46 @@
             <hr>
 
         </div>
+
+        <!--Commenter Info Modal-->
+        <div class="modal fade" id="commentInfoModal-{{$comment->user->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">User Information</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-8 col-md-12 col-sm-12">
+                        <img src="/uploads/avatars/{{$comment->user->avatar}}" class="img-fluid img-thumbnail" alt="">
+                    </div>
+                </div>
+                <br>
+                <br>
+                <hr>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                    <h3>Name:{{$comment->user->username}}</h3> 
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                    <h3>Email:{{$comment->user->email}}</h3> 
+                    </div>
+                </div>
+            
+            </div>
+            <div class="modal-footer">
+                
+            </div>
+            </div>
+        </div>
+        </div>
+
         @empty
         <div class="text-center">
             No Reaction's Yet
@@ -273,6 +313,44 @@
         </form>
     </div>
 </div>
+<!--User Info Modal-->
+<div class="modal fade" id="userInfoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">User Information</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+            <div class="col-lg-8 col-md-12 col-sm-12">
+                <img src="/uploads/avatars/{{$post->user->avatar}}" class="img-fluid img-thumbnail" alt="">
+            </div>
+        </div>
+        <br>
+        <br>
+        <hr>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+               <h3>Name:{{$post->user->username}}</h3> 
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+               <h3>Email:{{$post->user->email}}</h3> 
+            </div>
+        </div>
+       
+      </div>
+      <div class="modal-footer">
+        
+      </div>
+    </div>
+  </div>
+</div>
 
 <form id="like" method="POST">
     <input type="hidden" name="actions"  value="like">
@@ -289,6 +367,7 @@
     <input type='hidden' name='slug' value="{{$post->slug}}" />
     <input type='hidden' name='post_id' value="{{$post->id}}" />
 </form>
+
 @section('footer')
 
 @include('layouts.footer')
