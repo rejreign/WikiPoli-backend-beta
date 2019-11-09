@@ -190,7 +190,7 @@
         <div class="container">
             <div class="comment-div">
                 <div class="icon">
-                    <a href="">
+                    <a href="" data-toggle="modal" data-target="#commentInfoModal-{{$comment->user->id}}">
                         <img src="/uploads/avatars/{{ $comment->user->avatar }}" style="width:70px; height:70px; border-radius:5%; margin:5px;">
                     </a>
                 </div>
@@ -205,6 +205,46 @@
             <hr>
 
         </div>
+
+        <!--Commenter Info Modal-->
+        <div class="modal fade" id="commentInfoModal-{{$comment->user->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">User Information</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-8 col-md-12 col-sm-12">
+                        <img src="/uploads/avatars/{{$comment->user->avatar}}" class="img-fluid img-thumbnail" alt="">
+                    </div>
+                </div>
+                <br>
+                <br>
+                <hr>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                    <h3>Name:{{$comment->user->username}}</h3> 
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                    <h3>Email:{{$comment->user->email}}</h3> 
+                    </div>
+                </div>
+            
+            </div>
+            <div class="modal-footer">
+                
+            </div>
+            </div>
+        </div>
+        </div>
+
         @empty
         <div class="text-center">
             No Reaction's Yet
