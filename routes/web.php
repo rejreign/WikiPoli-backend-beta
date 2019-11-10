@@ -43,6 +43,7 @@ Route::get('/login/{social}/callback', 'User\SocialController@handleProviderCall
 
 Route::get('/posts', 'PostsController@index');
 Route::get('/posts/{slug}', 'PostsController@show');
+Route::get('/details/{slug}', 'PostsController@showDetail');
 Route::post('/post-comments', 'CommentsController@store');
 //search
 Route::get('/search', 'PostsController@search')->name('search');
