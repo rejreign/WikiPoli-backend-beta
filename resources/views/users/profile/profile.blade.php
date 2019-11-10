@@ -488,18 +488,18 @@
                                     
 												    <div class="tab-pane container fade" id="general_post">
                                                         @if(count($liked_posts) != 0)
-                                                                @foreach($posts as $post)
+                                                                @foreach($all_posts as $all_post)
                                                                 
                                                                     @foreach($liked_posts as $liked_post)
-                                                                        @if($post->id==$liked_post->post_id)
+                                                                        @if($all_post->id==$liked_post->post_id)
 
                                                                             <div class="post_cont">
                                                                                 <img src="/uploads/avatars/{{ Auth::user()->avatar }}" class=" justify-content-center" alt="" style="width:100px; height:100px; border-radius:50%; padding:11px; margin-left:auto; margin-right:auto;">
 
                                                                                     <div class="post_det"> 
-                                                                                            <h3><a href="{{url('posts/'.$post->slug)}}">{{$post->title}}</a> <span> {{date('F d, Y', strtotime($post->created_at))}}</span></h3>
+                                                                                            <h3><a href="{{url('posts/'.$all_post->slug)}}">{{$all_post->title}}</a> <span> {{date('F d, Y', strtotime($all_post->created_at))}}</span></h3>
 
-                                                                                            <p>{!! textShorten($post->body) !!}<br><a href="{{url('posts/'.$post->slug)}}">Read More</a></p>
+                                                                                            <p>{!! textShorten($all_post->body) !!}<br><a href="{{url('posts/'.$all_post->slug)}}">Read More</a></p>
                                                                                     </div>
                                                                                     
                                                                             </div>
