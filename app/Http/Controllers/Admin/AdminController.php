@@ -319,6 +319,7 @@ class AdminController extends Controller {
         if ($error) {
             return $error;
         }
+        $input['slug'] = str_slug($request->first_name.' '. $request->last_name,'-');
         $name = $request->first_name . $request->last_name;
         if ($request->hasFile('file')) {
             $file = $request->file('file');

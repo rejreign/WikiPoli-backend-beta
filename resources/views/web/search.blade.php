@@ -95,57 +95,10 @@
         }
 
 
-
-        .search-line {
-            display: flex;
-            justify-content: space-between;
-
-        }
-
-        .search-line input {
-            width: 300px;
-            padding: 5px 10px;
-            margin-right: -5px;
-            border: 1px solid #1257AE
-        }
-
-        .search-line button {
-            padding: 5px;
-            width: 100px;
-            background-color: #1257AE;
-            color: #fff;
-            border: 1px solid #1257AE
-        }
-
-        @media (max-width: 1000px) {
-            .search-line {
-                display: flex;
-                flex-direction: column-reverse;
-                justify-content: center;
-                align-items: center;
-            }
-
-            .search-box {
-                margin-bottom: 12px;
-                width: 90%
-            }
-
-            .search-line input {
-                width: 80% !important;
-                padding: 5px 10px;
-
-            }
-
-            .search-line button {
-                padding: 5px;
-                width: 20% !important;
-
-            }
-
-            .search-line h3 {
-                font-size: 19px
-            }
-        }
+  .search {
+        margin-top: 0.5em;
+        width: 10em;
+    }
 </style>
 @endsection
 @section('content')
@@ -156,15 +109,17 @@
                 <div class="">
                     <h3 class="mb-4 text-success">Search Results for <span id="search-keyword">"{{request('q')}}"</span></h3>
                     <!-- <h4>Results found for Keyword</h4> -->
-                </div>
+                </div>    &nbsp;    &nbsp;    &nbsp;    &nbsp;
 
-                <!--                    search box starts here-->
-                <form action="{{url('search')}}" method="get">
-                <div class="justify-content-right search-box">
-                    <input type="text" name="q" placeholder="search" class="">
-                    <button type="submit" class="">Search</button>
-                </div>
-                </form>
+                 <form action="{{url('search')}}" method="get" >
+                 
+        <div class="d-flex justify-content-center ">
+
+            <input type="text" class="form-control m-2" name="q" placeholder="Enter Candidate's Name">
+            <button type="submit"  class="btn  search h-50" style="background-color:#1257AE;color:#fff" >Search</button>
+
+        </div>
+    </form>
 
             </div>
             <div>
@@ -185,7 +140,8 @@
                 <div class="col-md-12 col-lg-12 main-content tab-pane active" id="profile_results"><br>
                     <div class="row justify-content-between">
                     @forelse($results as $result)
-                        <div class="card col-lg-3 col-12 col-md-4 mb-5 blog-entry"><a href="#">
+                   
+                        <div class="card col-lg-3 col-12 col-md-4 mb-5 blog-entry"><a href="{{url('details/'.$result->slug)}}">
                                 <img class="card-img-top img-fluid" src="{{$result->file}}" alt="Card image" style="width:100%">
                                 <div class="card-body">
                                     <h4 class="card-title text-center">{{$result->first_name }} {{$result->last_name }}</h4>
@@ -193,6 +149,7 @@
                                 </div>
                             </a>
                         </div>
+                   
                     @empty
                     No Record Of Politician
                     @endforelse

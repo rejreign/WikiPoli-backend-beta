@@ -3,9 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Comment;
 use App\Models\Post;
-use Spatie\Searchable\Search;
 use App\Politician;
 
 class PostsController extends Controller {
@@ -57,6 +55,10 @@ class PostsController extends Controller {
 
     }
 
+    public function showDetail($slug) {
+         $data['politician'] = Politician::whereSlug($slug)->firstOrFail();
+        return view('web.details',$data); 
+    }
     /**
      * Show the form for editing the specified resource.
      *
