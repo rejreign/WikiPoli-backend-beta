@@ -15,7 +15,7 @@
     <form id="addpost" enctype="multipart/form-data">
         @csrf
         <div id="editor-wrapper">
-
+ 
             <input type="text"  name="title" id="post-title" placeholder="Post Title">
             <div class="clearfix"></div>
             <br/>
@@ -39,6 +39,8 @@
 
         </div>
 </section>
+
+
 @section('script')
 <script src="{{asset('admin/assets/js/vendor/quill.min.js')}}"></script>
 
