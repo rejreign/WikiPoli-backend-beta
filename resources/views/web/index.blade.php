@@ -75,6 +75,42 @@
         text-decoration: none;
     }
 
+    .first {
+        margin-left: 3.5em;
+        margin-right: 3.5em;
+        margin-top: -1em;
+    }
+    .first a {
+        text-decoration: none;
+    }
+
+    @media only screen and (max-width: 425px) {
+
+        .first {
+            margin-left: -1em;
+        }
+    }
+
+    @media only screen and (width: 375px) {
+    
+        .first {
+            margin: auto;
+        }
+    }
+    
+    @media only screen and (width: 425px) {
+        
+        .first {
+            margin: auto;
+        }
+    }
+
+    @media only screen and (max-width: 320px) {
+        
+        .first {
+            margin: auto;
+        }
+    }
 
 
 
