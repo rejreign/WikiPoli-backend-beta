@@ -3,9 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Comment;
 use App\Models\Post;
-use Spatie\Searchable\Search;
 use App\Politician;
 
 class PostsController extends Controller {
@@ -52,11 +50,15 @@ class PostsController extends Controller {
      */
     public function show($slug) {
 
-        $data['post'] = Post::whereSlug($slug)->with('user')->with('comments')->firstOrFail();
+        $data['post'] = Post::whereSlug($slug)->with('user')->with('comments')->with('likeunlike')->firstOrFail();
         return view('web.post.readmore',$data);
 
     }
 
+    public function showDetail($slug) {
+         $data['politician'] = Politician::whereSlug($slug)->firstOrFail();
+        return view('web.details',$data); 
+    }
     /**
      * Show the form for editing the specified resource.
      *

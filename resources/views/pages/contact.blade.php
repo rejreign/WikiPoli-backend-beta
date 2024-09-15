@@ -32,10 +32,6 @@ body {
   color: #6D9BF1;
 }
 
-.menu li {
-  padding-left: 2.5rem;
-}
-
 .fa-bars {
   color: #000000;
 }
@@ -135,6 +131,9 @@ h1 {
   padding-top: 10px;
   height: 300px;
   width: 100%;
+}
+#footer #hr {
+  margin: auto;
 }
 
 .links {

@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width , initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>WikiPoli | Sign In</title>
+        <link rel="icon" type="image/png" sizes="32x32" href="https://res.cloudinary.com/fabianuzukwu/image/upload/v1571749198/c09e9odiqy2cvkosfubl.png">
         <link rel="shortcut icon" type="image/png"
               href="https://res.cloudinary.com/fabianuzukwu/image/upload/v1571749198/c09e9odiqy2cvkosfubl.png" />
         <link rel="stylesheet" type="text/css"

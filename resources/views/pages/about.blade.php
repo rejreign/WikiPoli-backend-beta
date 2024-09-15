@@ -156,7 +156,7 @@
 		}
 		#footer #socials
 		{
-			display: flex;
+			display: block;
 			flex-direction: row;
 		}
 		#footer #socials .social-link
@@ -258,12 +258,6 @@
 @section('content')
 
 <div class="container">
-			<div class="d-flex float-right">
-				<input type="text" class="form-control mr-2" placeholder="Enter Candidate's Name">
-				<button type="button" class="btn search">Search</button>
-			</div>
-		</div>
-
 		<div class="about">
 			<h4 class="display-4 text-center text-primary">About Us</h4>
 		</div>
@@ -327,6 +321,8 @@
                 <a class="btn btn-primary btn-lg" href="{{ url('/login') }}" role="button">Get Started</a>
             </div>
         </div>
+			</div>
+
 
 @section('footer')
 @include('layouts.footer')

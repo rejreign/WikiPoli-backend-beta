@@ -10,7 +10,7 @@
                 <i class="fa fa-bars" aria-hidden="true"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="nav navbar-nav ml-auto menu">
+                <ul class="nav navbar-nav ml-auto menu ">
                     <li class="nav-item">
                         <a class="nav-link " @if(request()->path() == '/') id="nav-register" @endif href="{{url('/')}}"><strong>Home</strong></a>
                     </li>
@@ -20,23 +20,40 @@
                     @Auth
                     
 
-                    <li class="nav-item">
-                        <a class="nav-link" @if(request()->path() == 'settings') id="nav-register" @endif  href="{{url('settings')}}"><strong>Profile</strong></a>
+                    <div class="collapse navbar-collapse show" id="collapsibleNavId">
+                        <ul class="navbar-nav ml-auto mt-2 mt-lg-0 menu">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link text-primary pr-2 dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><strong>{{Auth::user()->username}}</strong> <img src="/uploads/avatars/{{ Auth::user()->avatar }}" class=" justify-content-center" alt="" style="width:30px; height:30px; border-radius:20%;"></a></a>
+                                <div class="dropdown-menu bg-light" aria-labelledby="dropdownId">
+                                    <a class="dropdown-item nav-link" @if(request()->path() == 'myprofile') id="nav-register" @endif  href="{{url('myprofile')}}">My Profile</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item nav-link" @if(request()->path() == 'profile') id="nav-register" @endif  href="{{url('profile')}}">Settings</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a href="{{ route('logout') }}" class="nav-link dropdown-item" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+                                </div>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
+                            </li>
+                        <ul>
+                    </div>
+
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" @if(request()->path() == 'myprofile') id="nav-register" @endif  href="{{url('myprofile')}}"><strong>Profile</strong></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" @if(request()->path() == 'profile') id="nav-register" @endif  href="{{url('profile')}}"><strong>Settings</strong></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link"   ><strong>{{Auth::user()->username}}</strong></a>
+                        <a class="nav-link"><strong>{{Auth::user()->username}}</strong> <img src="/uploads/avatars/{{ Auth::user()->avatar }}" class=" justify-content-center" alt="" style="width:32px; height:32px; border-radius:50%;"></a>
                     </li>
                     <li class="nav-item">
                         <a href="{{ route('logout') }}" class="nav-link" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                             <strong>  {{ __('Logout') }}</strong>
                         </a>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                            @csrf
-                        </form>
-                    </li>
+                    </li> -->
+                        
+                    
                     @else
                     <li class="nav-item">
                         <a class="nav-link"  @if(request()->path() == 'login') id="nav-register" @endif href="{{url('login')}}"><strong>Login</strong></a>
